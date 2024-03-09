@@ -79,8 +79,6 @@ Age のデータの種類（年齢の違い）が多すぎて、何がなんな�
 
 ![blog placeholder](/src/assets/post/ml4-3.jpg)
 
-<code class="python"></code>
-
 そのため、データの種類の少ないと思われる Pclass、Sex、Embarked、Parch、SibSip を一気に可視化したいと思います。
 
 ```python
