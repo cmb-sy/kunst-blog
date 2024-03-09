@@ -3,3 +3,5 @@ line-height: 1.7;
 overflow-wrap: anywhere;
 font-family: sans-serif;
 color: rgb(0 0 0 / 87%);
+
+overflow-x: auto;
