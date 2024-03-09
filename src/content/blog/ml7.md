@@ -16,15 +16,9 @@ postLayout: simple
 この２次元ベクトルに対して2行2列の正方行列をかけてみます。
 
 $$
-\begin{pmatrix}
-2 &amp; -5 \\
-5 &amp; -6
-\end{pmatrix}
-\begin{pmatrix}
-2 \\
-1
-\end{pmatrix}=\begin{pmatrix}
--1 &amp; 4
+\begin{pmatrix}2 & -5 \\ 5 & -6\end{pmatrix}
+\begin{pmatrix}2 \\ 1\end{pmatrix}=\begin{pmatrix}
+-1 & 4
 \end{pmatrix}
 $$
 
@@ -38,14 +32,14 @@ $$
 
 $$
 \begin{pmatrix}
-8 &amp; 1 \\
-4 &amp; 5
+8 & 1 \\
+4 & 5
 \end{pmatrix}
 \begin{pmatrix}
 1 \\
 -4
 \end{pmatrix}=\begin{pmatrix}
-4 &amp; -16
+4 & -16
 \end{pmatrix}
 $$
 
@@ -56,29 +50,24 @@ $$
 ![blog placeholder](/src/assets/post/ml7-2.jpg)
 
 <h2>固有値と固有ベクトル</h2>
+
 固有値と固有ベクトルの話に戻ってきました。固有値と固有ベクトルを式で表すと次の式になります。
-$$Ax = \lambda x$$
-この式の意味は、ベクトル$x$に行列Aを作用されると方向は変わらず$\lambda$倍の大きさになるとうことです。先ほどの行列とベクトルの演算で話したことと同じですね。このときの$x$を固有ベクトル、$\lambda$を固有値といいます。まとめると
-<table style="border-collapse: collapse; width: 100%; height: 36px;">
-<tbody>
-<tr style="height: 18px;">
-<td style="width: 50%; height: 18px;">固有ベクトル</td>
-<td style="width: 50%; height: 18px;">行列変換しても方向が変わらないベクトル</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 50%; height: 18px;">固有値</td>
-<td style="width: 50%; height: 18px;">行列変換後のベクトルの大きさの変化率</td>
-</tr>
-</tbody>
-</table>
+
+$$
+Ax = \lambda x
+$$
+
+この式の意味は、ベクトル$x$に行列 A を作用されると方向は変わらず$\lambda$倍の大きさになるとうことです。先ほどの行列とベクトルの演算で話したことと同じですね。このときの$x$を固有ベクトル、$\lambda$を固有値といいます。まとめると
+
 <h2>固有値と固有ベクトルの求め方</h2>
-固有値と固有ベクトルの求め方はネットにたくさんありますが、このQiita記事でも行います。
-次の行列Aの固有値と固有ベクトルを求めます。
+
+固有値と固有ベクトルの求め方はネットにたくさんありますが、この Qiita 記事でも行います。
+次の行列 A の固有値と固有ベクトルを求めます。
 
 $$
 A=\begin{pmatrix}
-8 &amp; 1 \\
-4 &amp; 5
+8 & 1 \\
+4 & 5
 \end{pmatrix}
 $$
 
@@ -86,35 +75,35 @@ $$
 
 $$
 \begin{align}
-&amp; Ax = \lambda x \\
+& Ax = \lambda x \\
 \\
 \Leftrightarrow
-&amp; \big| A-\lambda I \big| = 0 \\
+& \big| A-\lambda I \big| = 0 \\
 \\
-\Leftrightarrow &amp;
+\Leftrightarrow &
 \left|
 \begin{matrix}
 \left(
 \begin{matrix}
-8 &amp; 1 \\
-4 &amp; 5
+8 & 1 \\
+4 & 5
 \end{matrix}
 \right) -
 \left(
 \begin{matrix}
-\lambda &amp; 0 \\
+\lambda & 0 \\
 \\
-0 &amp; \lambda
+0 & \lambda
 \end{matrix}
 \right)
 \end{matrix}
 \right| = 0 \\
 \\
-\Leftrightarrow &amp;
+\Leftrightarrow &
 \left|
 \begin{matrix}
-8-\lambda &amp; 1 \\
-1 &amp; 4-\lambda \\
+8-\lambda & 1 \\
+1 & 4-\lambda \\
 \end{matrix}
 \right| = 0
 \end{align}
@@ -124,24 +113,25 @@ $$
 
 $$
 \begin{align}
-&amp; (8-\lambda)(5-\lambda) = 0 \\
+&; (8-\lambda)(5-\lambda) = 0 \\
 \\
-\Leftrightarrow &amp; \lambda^2-6\lambda +36 = 0 \\
+\Leftrightarrow &; \lambda^2-6\lambda +36 = 0 \\
 \\
-\Leftrightarrow &amp; (\lambda-4)(\lambda-9)=0
+\Leftrightarrow &; (\lambda-4)(\lambda-9)=0
 \end{align}
 $$
 
 これで固有値$\lambda=4,9$が求まりました。各々の固有値に対応する固有ベクトルを求めます。
 
-<h3>λ=4</h3>
+### λ=4
+
 $\lambda=4$ を $Ax = \lambda x$へ代入します。
 
 $$
 \begin{align}
-&amp; \begin{pmatrix}
-8-4 &amp; 1 \\
-4 &amp; 5-4
+&; \begin{pmatrix}
+8-4 & 1 \\
+4 & 5-4
 \end{pmatrix}
 \begin{pmatrix}
 x_1 \\
@@ -153,10 +143,10 @@ x_2
 \\
 \\
 \Leftrightarrow
-&amp;
+&
 \begin{pmatrix}
-4 &amp; 1 \\
-4 &amp; 1
+4 & 1 \\
+4 & 1
 \end{pmatrix}
 \begin{pmatrix}
 x_1 \\
@@ -173,8 +163,8 @@ $$
 $$
 \left\{
 \begin{array}{ll}
-x_1=t &amp; \\
-x_2=4t &amp;
+x_1=t & \\
+x_2=4t &
 \end{array}
 \right.
 $$
@@ -193,9 +183,9 @@ $\lambda=9$ を $Ax = \lambda x$へ代入します。
 
 $$
 \begin{align}
-&amp; \begin{pmatrix}
-8-9 &amp; 1 \\
-4 &amp; 5-9
+& \begin{pmatrix}
+8-9 & 1 \\
+4 & 5-9
 \end{pmatrix}
 \begin{pmatrix}
 x_1 \\
@@ -207,10 +197,10 @@ x_2
 \\
 \\
 \Leftrightarrow
-&amp;
+&
 \begin{pmatrix}
--1 &amp; 1 \\
-4 &amp; -4
+-1 & 1 \\
+4 & -4
 \end{pmatrix}
 \begin{pmatrix}
 x_1 \\
@@ -227,8 +217,8 @@ $$
 $$
 \left\{
 \begin{array}{ll}
-x_1=t &amp; \\
-x_2=t &amp;
+x_1=t & \\
+x_2=t &
 \end{array}
 \right.
 $$
@@ -246,18 +236,4 @@ $$
 
 <h2>機械学習における固有値と固有ベクトル</h2>
 ここまで固有値と固有ベクトルについての基本的なことについて述べました。しかし、こういった固有値と固有ベクトルが機械学習の世界でどのように活用されているかがよくわからないと思います。機械学習の世界では、共分散行列の固有値、固有ベクトルを求めるといった場面によく遭遇します。共分散行列について詳しくは他記事を参考にしてもらうとして、簡単に説明しますと共分散行列はデータの形を定義します。
-<span class="st-mymarker-s">共分散行列の固有ベクトルがわかるとデータ全体を説明する方向がわかります。つまり、大きな固有値に対応する固有ベクトルほどデータ全体を説明するのに重要というわけです。</span>
-共分散行列の固有値、固有ベクトルを求める意味についてまとめると
-<table style="border-collapse: collapse; width: 100%;">
-<tbody>
-<tr>
-<td style="width: 50%;">固有ベクトル</td>
-<td style="width: 50%;">データの方向を表す</td>
-</tr>
-<tr>
-<td style="width: 50%;">固有値</td>
-<td style="width: 50%;">データをより表す方向がわかる</td>
-</tr>
-</tbody>
-</table>
-こういった考えを用いて分散の大きな方向を求めるのが次元の縮約をする主成分分析です。
+<span class="st-mymarker-s">共分散行列の固有ベクトルがわかるとデータ全体を説明する方向がわかります。つまり、大きな固有値に対応する固有ベクトルほどデータ全体を説明するのに重要というわけです。

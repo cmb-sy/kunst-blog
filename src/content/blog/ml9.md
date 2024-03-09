@@ -32,9 +32,13 @@ Nadaraya-Watson は、局所多項式回帰における第０次の局所線形�
 
 非線形写像$f$は下記の式で表されます。
 
-$$f(x^{\ast})=\frac{\sum_{i=1}^N K_{\sigma}(x^{\ast},x_i)y_i}{\sum_{j=1}^N K_{\sigma}(x^{\ast},x_j)}$$
+$$
+f(x^{\ast})=\frac{\sum_{i=1}^N K_{\sigma}(x^{\ast},x_i)y_i}{\sum_{j=1}^N K_{\sigma}(x^{\ast},x_j)}
+$$
 
-$$K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)$$
+$$
+K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)
+$$
 
 $K_{\sigma}(x^{\ast} , x_j)$は<span class="st-mymarker-s">任意の</span>カーネル関数であり、上記の式の場合はガウシアンカーネルです。新規のデータ$x^{\ast}$と学習データ$x_i$,$x_j$との距離に応じて重みを決定します。
 
@@ -50,37 +54,45 @@ Nadaraya-Watson 推定のカーネル回帰やカーネル平滑化、カーネ�
 
 ノンパラメトリック回帰では、変数$X$に対する変数$Y$の条件付き期待値は次のように記述できます。
 
-$$E(Y|X)=f(X)$$
+$$
+E(Y|X)=f(X)
+$$
 
-[st-slidebox fontawesome="" text=" <strong>なぜこうなるのか？と思った場合はクリック</strong>" bgcolor="#d6e9ca" color="#1a1a1a" margin_bottom="20"]
+### なぜこうなるのか？
 
 サイコロの例で考える。
 
 形の異なる二つのサイコロを投げて大きいほうのサイコロの目を$X$、小さいほうのサイコロの目を$Y$とする。条件付き期待値を計算したい確率変数を 2 つのサイコロの目の積$XY$とし、$Y=3$という情報が分かっているとする。 このとき、ありうる可能性は$(X,Y)=(1,3),(2,3),(3,3),(4,3),(5,3),(6,3)$の 6 通りであり、それぞれ確率 16 であるので
 
-$$E[XY|Y=3]=1 \cdot 3 \cdot \frac{1}{6} + \cdots + 6 \cdot 3 \cdot \frac{1}{6} = \frac{21}{2}$$
+$$
+E[XY|Y=3]=1 \cdot 3 \cdot \frac{1}{6} + \cdots + 6 \cdot 3 \cdot \frac{1}{6} = \frac{21}{2}
+$$
+
 となる。同様に$Y=y$がわかっていると
 
-<dl></dl>
-$$E[XY|Y=y]=\frac{21y}{6}$$というのが分かる、これは
-<dl>
- 	<dd>$$E[XY|Y=y]={\frac{21y}{6}}$$</dd>
- 	<dd></dd>
-</dl>
+$$
+E[XY|Y=y]=\frac{21y}{6}
+$$
+
+というのが分かる、これは
+
+$$
+E[XY|Y=y]={\frac{21y}{6}}
+$$
+
 というのが分かります。これを
 
-$$E[XY|Y]={\frac{21Y}{6}}$$
+$$
+E[XY|Y]={\frac{21Y}{6}}
+$$
 
-<dl>
- 	<dd></dd>
-</dl>
 と書くと、「$Y$の値が決まったときの$XY$の期待値は$\frac{21Y}{6}$である。」と自然に読むことができる。このようなことは一般の確率変数の組 $X$と$Y$が与えられた場合にもいえることで、関数$f$をうまく見つけてきて
 
-$$E[X|Y]=f(Y)$$
+$$
+E[X|Y]=f(Y)
+$$
 
 とすることができる。
-
-[/st-slidebox]
 
 この形から回帰手法として、Nadaraya-Watson 推定の式があるのです。
 
@@ -100,24 +112,34 @@ Nadaraya-Watson や局所線形回帰では、推定すべき回帰関数の曲�
 <h3>カーネル密度推定</h3>
 <span class="st-mymarker-s">カーネル密度推定（KDE）は、確率変数の確率密度関数を推定する</span>ためのノンパラメトリックな方法です。$(x_i)^n_{i=1}$を(未知の)確率密度関数$f$を持つ独立同分布からのデータとして、その確率密度関数を推定します。各標本データの局所的近傍から得られる結果を重ね合わせて確率分布関数全体を推定（表現）しようとする特性上，標本データ数が少ないと正しい確率密度関数を得られない特徴があります。
 
-$$\widehat{f_{\sigma}}(x)=\frac{1}{n{\sigma}}K_{\sigma}(x^{\ast},x_j)$$
+$$
+\widehat{f_{\sigma}}(x)=\frac{1}{n{\sigma}}K_{\sigma}(x^{\ast},x_j)
+$$
 
 カーネル密度推定は確率密度関数の推定方法、カーネル平滑化は回帰の手法です。
 つまり、<span class="st-mymarker-s"><span class="hutoaka"><span class="huto">カーネル平滑化とカーネル密度推定は別物です</span><span class="st-mymarker-s">。</span></span></span>
 
-条件付き確率密度関数は、$f(x)&gt;0$ のときに<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y">次のように</span></span>定義できます。
+条件付き確率密度関数は、$f(x)\gt 0$ のときに<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y">次のように</span></span>定義できます。
 
-$$E(Y|X=x)=\int yf(y|x)dy=\int y\frac{f(x,y)}{f(x)}dy\qquad※(f(y|x)dy=\frac{f(x,y)}{f(x)})$$
+$$
+E(Y|X=x)=\int yf(y|x)dy=\int y\frac{f(x,y)}{f(x)}dy\qquad※(f(y|x)dy=\frac{f(x,y)}{f(x)})
+$$
 
 ここで$f(x,y)$は$X$と$Y$の同時分布で、$f(x)$は周辺分布です。これらは以下の式が成り立ちます。
 
-$$f(x,y)=\frac{1}{n}\sum_{i=1}^nK_{\sigma}(x^{\ast},x_i)K_{\sigma}(y^{\ast},y_i)$$
+$$
+f(x,y)=\frac{1}{n}\sum_{i=1}^nK_{\sigma}(x^{\ast},x_i)K_{\sigma}(y^{\ast},y_i)
+$$
 
-$$f(x)=\frac{1}{n}\sum_{i=1}^nK_{\sigma}(x^{\ast},x_i)$$
+$$
+f(x)=\frac{1}{n}\sum_{i=1}^nK_{\sigma}(x^{\ast},x_i)
+$$
 
 したがって、これらを代入して変形していくと Nadaraya-Watson の式が導出されます。
 
-$$\begin{equation*}\begin{split}E(Y|X=x)&amp;= \int \frac{y\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^nK_{\sigma}(x^{\ast}, x_j)}dy\\&amp;=\frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast},x_i) \int y K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast}, x_j)}dy \\ &amp;= \frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)y_i}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast},x_j)}\end{split}\end{equation*}$$
+$$
+\begin{equation*}\begin{split}E(Y|X=x)&amp;= \int \frac{y\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^nK_{\sigma}(x^{\ast}, x_j)}dy\\&amp;=\frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast},x_i) \int y K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast}, x_j)}dy \\ &amp;= \frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)y_i}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast},x_j)}\end{split}\end{equation*}
+$$
 
 二変量の同時分布$f(x,y)$をカーネル密度推定で推定した時、条件付き分布$f(y|x)$の平均値は Nadaraya-Watson と一致します。
 
@@ -125,9 +147,7 @@ $$\begin{equation*}\begin{split}E(Y|X=x)&amp;= \int \frac{y\sum_{i=1}^{n}K_{\sig
 上記で述べたようにNadaraya-Watsonはカーネル平滑化やカーネル回帰、カーネル密度推定と関係を持っています。ゆえに様々な呼び方で呼ばれます。その呼び方を以下にまとめておきます。
 <ul>
  	<li>Kernel smoother</li>
- 	<li>カーネル平滑化</li>
  	<li>Kernel regression</li>
- 	<li>カーネル回帰</li>
  	<li>Nadaraya-Watson kernel estimator</li>
  	<li>Nadaraya-Watson estimato</li>
  	<li>Nadaraya-Watson kernel regression</li>
@@ -154,14 +174,14 @@ Nadaraya-Watson では上記の青点線の組み合わせのような感じで�
 
 このときの誤差の重みを決める関数(カーネル関数)$K_{\sigma}(x^{\ast} , x)$は以下の式で表されるとします。
 
-$$K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)$$
+$$
+K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)
+$$
 
-<span id="MathJax-Element-57-Frame" class="MathJax" style="box-sizing: inherit; display: inline-block; font-style: normal; font-weight: 400; line-height: normal; font-size: 16px; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: 0px; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: 100%; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; vertical-align: text-top; color: #333333; font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', メイリオ, meiryo, sans-serif; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; widows: 2; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; position: relative;" tabindex="0" role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03C3;&lt;/mi&gt;&lt;/math&gt;"><span id="MathJax-Span-978" class="math" role="math"><span id="MathJax-Span-979" class="mrow"><span id="MathJax-Span-980" class="mi">$\sigma$</span></span></span></span>はカーネル幅と呼ばれる（ハイパー）パラメータです。ざっくり言いますと「新規データに対する近い or 遠いを決める境目」を決めるものです．これを<strong>大きく</strong>するとより<strong>広い範囲</strong>のデータを近傍と見なします．これを究極に大きくすると全てのデータ点に対する平均値しかとりません。
+$\sigma$はカーネル幅と呼ばれる（ハイパー）パラメータです。ざっくり言いますと「新規データに対する近い or 遠いを決める境目」を決めるものです．これを<strong>大きく</strong>するとより<strong>広い範囲</strong>のデータを近傍と見なします．これを究極に大きくすると全てのデータ点に対する平均値しかとりません。
 
 <h2>実装</h2>
 それではNadaraya-Watotonを実装して挙動を見ていきたいと思います。
-
-[st-slidebox fontawesome="" text=" <b>実装コードはこちら</b>" bgcolor="#d6e9ca" color="#1a1a1a" margin_bottom="20"]
 
 ```py
 import numpy as np
@@ -197,8 +217,6 @@ if __name__ == '__main__':
     plt.show()
 ```
 
-[/st-slidebox]
-
 データは$y=sin(x)$に対してガウスノイズを加えたものを使います。
 
 ![blog placeholder](/src/assets/post/ml9-6.jpg)
@@ -217,7 +235,10 @@ if __name__ == '__main__':
 これは、Nadaraya-Watson に次のことが成り立つからです。
 
 入力$x$、出力$y$において$ \sigma \rightarrow 0$のとき，
-$$ f(x) \simeq y\_{i^\ast}\,, i^\ast = \underset{i}{argmin}(x - x_i)$$
+
+$$
+f(x) \simeq y\_{i^\ast}\,, i^\ast = \underset{i}{argmin}(x - x_i)
+$$
 
 近傍半径が小さすぎると、最も近い学習データにのみ影響を受け、その値になるのです。そのため、学習データ間の中間付近ではステップ関数のような挙動が見られるのです。これは、K 近傍法の$k$の数 1 のときの結果と同じです。
 
