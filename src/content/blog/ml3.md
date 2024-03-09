@@ -8,8 +8,6 @@ date: 2024-02-12
 postLayout: simple
 ---
 
-&nbsp;
-
 <h2>はじめに</h2>
 
 最近、線形回帰モデルについて勉強したので忘れないうちにまとめてみました。
@@ -33,8 +31,6 @@ $$
 $$
 f(x)=\mathbf{w}^T \boldsymbol \phi(x)
 $$
-
-&nbsp;
 
 この式では、$x$を$m$次元の特徴ベクトルに変換していていると考えることができます。(線形問題)
 
@@ -83,8 +79,6 @@ $$
 $$
 \mathbf{w}=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\boldsymbol\Phi^T\mathbf{y}
 $$
-
-&nbsp;
 
 $$\mathbf{w}=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\boldsymbol\Phi^T\mathbf{y}$$の双対を導く</h2>
 
@@ -138,16 +132,12 @@ $$
 
 $k(x,x^{\prime})=\boldsymbol \varphi(x)^T\boldsymbol \varphi(x^{\prime})$とするとき、$\boldsymbol \Phi^T \boldsymbol \Phi$,$\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})$はそれぞれ次のように変形できます。
 
-&nbsp;
-
 $$
 K=\boldsymbol \Phi^T \boldsymbol \Phi=\left( \begin{array}{ccccc}
 \boldsymbol \varphi(x_1)^T \boldsymbol \varphi(x_1^{\prime}) & \cdots & \boldsymbol\varphi(x_1)^T\boldsymbol \varphi(x_n^{\prime}) \\
 \vdots & \ddots & \vdots\\
  \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x_1^{\prime}) & \cdots & \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x_n^{\prime})  \end{array} \right)=\left( \begin{array}{ccccc} k(x_1,x_1^{\prime}) & \cdots & k(x_1,x_n^{\prime}) \\ \vdots & \ddots & \vdots \\  k(x_n,x_1^{\prime}) & \cdots & k(x_n,x_n^{\prime})\end{array} \right)
 $$
-
-&nbsp;
 
 $$
 k(x^{\ast})=\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})=\left[ \begin{array}{ccccc} \boldsymbol \varphi(x_1)^T\boldsymbol \varphi(x)^{\ast} \\ \vdots \\  \boldsymbol \varphi(x_n)^T\boldsymbol \varphi(x)^{\ast} \end{array} \right]=\left[ \begin{array}{ccccc} k(x_1,x^{\ast}) \\ \vdots \\  k(x_n,x^{\ast}) \ \end{array} \right]
@@ -204,11 +194,7 @@ $$
 
 また、このとき数値ではないデータ(文字列、グラフ、テキスト)にも内積(類似度)を定義することができるという特徴があります。
 
-&nbsp;
-
 線形回帰モデルから非線形手法であるカーネルの世界という新たな世界へと繋がりました。
-
-&nbsp;
 
 <h2>最後に</h2>
 

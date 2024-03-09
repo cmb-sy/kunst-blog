@@ -21,8 +21,6 @@ postLayout: simple
 
 それぞれの特徴を見ていきましょう。
 
-&nbsp;
-
 <h5><strong>Dilation</strong></h5>
 Dilationとは拡張や膨張という意味です。
 
@@ -42,5 +40,3 @@ Erosionとは、領域の境界のピクセルを除去する処理のことで�
 Dilation がわかれば、この処理は容易に理解できますね。
 
 もちろん、8 近傍と 4 近傍で結果は変わります。
-
-&nbsp;

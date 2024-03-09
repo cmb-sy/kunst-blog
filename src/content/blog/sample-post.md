@@ -1,11 +1,12 @@
 ---
 title: Sample Post about ChatGPT
-cover: '@/assets/og-image.png'
-date: '2024-02-09'
-lastmod: '2024-02-10'
+cover: "@/assets/og-image.png"
+date: "2024-02-09"
+lastmod: "2024-02-10"
 draft: true
 summary: An article exploring the possibilities of using ChatGPT in various applications.
 ---
+
 import Figure from "@/components/Figure.astro"
 import figureExample from "@/assets/og-image.png"
 
@@ -23,7 +24,7 @@ Now, let's add some JavaScript and Python code that uses ChatGPT in a simple web
 
 ```javascript
 // Importing ChatGPT for JavaScript
-import ChatGPT from 'chatgpt';
+import ChatGPT from "chatgpt";
 
 // Creating an instance of ChatGPT
 const chatbot = new ChatGPT();

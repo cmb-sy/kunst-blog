@@ -37,16 +37,14 @@ print(df_train.head(5))
 
 結果は次のようになります。
 
-![blog placeholder](/src/assets/post/ml4-1.jpg)
+![An arrow pointing at the website logo](/src/assets/post/ml4-1.jpg)
 
-&nbsp;
+<!-- ![blog placeholder](/src/assets/post/ml4-1.jpg) -->
 
 <h2>2. データの可視化</h2>
 データ間の関係性を見るために、データの可視化を行っていきます。
 
 可視化結果は、特徴量エンジニアリングやデータの加工のための大事な情報となります。
-
-&nbsp;
 
 <h3>データ数と型の確認</h3>
 まず、データ数と型を確認していきます。
@@ -58,16 +56,12 @@ print(df_train.info())
 print(df_test.info())
 ```
 
-&nbsp;
-
 ![blog placeholder](/src/assets/post/ml4-2.jpg)
 
 Object 型が何個かあるのがわかります。Object 型は学習できないので加工する必要があります。少なくとも 5 つのカラムについては消すか加工する必要がありそうです。
 
 訓練データは 891 レコードと 12 カラムあるのがわかります。
 テストデータは 417 レコードと 11 カラムあるのがわかります。
-
-&nbsp;
 
 <h3>棒グラフによる可視化</h3>
 seabornのbarplotを用いてSurvivedとの関係を可視化していきます。
@@ -190,8 +184,6 @@ fig, axes = plt.subplots(3, 2, figsize=(16, 12))
 </table>
 まだ、可視化できていないカラムもありますが、ここまでにしたいと思います。
 
-&nbsp;
-
 <h2>2. データの加工</h2>
 データを加工していきます。
 <h3>欠損値数の確認</h3>
@@ -218,8 +210,6 @@ Fare 1
 Cabin 327
 dtype: int64
 ```
-
-&nbsp;
 
 Cabin、Age、Embarked、Fare に欠損値を含んでいます。
 
@@ -291,16 +281,10 @@ Embarked は、S を 0、C を 1、Q を 2 にします。
  df_test.replace({'Embarked': {'S': 0, 'C': 1, 'Q' : 2}}, inplace=True)</code></pre>
 ```
 
-&nbsp;
-
 加工は以上になります。
-
-&nbsp;
 
 <h2>特徴量生成</h2>
 既存の特徴量から新しい特徴量を作っていきたいと思います。
-
-&nbsp;
 
 Parch と SibSp を見ると、同乗した親族が多いほど生存率が低いのがわかります。
 
@@ -317,8 +301,6 @@ plt.show()
 ```
 
 ![blog placeholder](/src/assets/post/ml4-7.jpg)
-
-&nbsp;
 
 <h2>相関関係と相互情報量</h2>
 <h3>相関関係の可視化</h3>
@@ -361,14 +343,10 @@ plt.show()
 
 本当は相互情報量を見て、Survived との関連性を見るのがいいのですが、今回はやめておきます。
 
-&nbsp;
-
 <h2>学習</h2>
 モデルの学習を行います。
 
 今回は、ランダムフォレストというものを使っていきたいと思います。sklearn から引っ張ってきます。（<a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">sklearn のランダムフォレスト</a>）
-
-&nbsp;
 
 ```py
 import from sklearn.ensemble import RandomForestClassifier as rfc
@@ -396,8 +374,6 @@ explanatory_variable = ["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embar
 pridict = random_forest(df_train, df_test, purpose_variable, explanatory_variable)
 ```
 
-&nbsp;
-
 <h2>学習結果を提出</h2>
 予測できた結果と生存者IDを結合してCSVファイルに変換します。
 
@@ -413,15 +389,11 @@ submit = pd.DataFrame({id_name: test[id_name],　predict_id_name: predict})
 change_submit_file("PassengerId", "Survived", df_test, pridict)
 ```
 
-&nbsp;
-
 保存された CSV ファイルを提出すれば終わりです。
 
 結果は........<strong>Score: 0.74880</strong>
 
 まぁ、ざっくりやったのでこんなものと言い訳します。
-
-&nbsp;
 
 <h2>最後に</h2>
 ここまで読んでいただきありがとうございます。

@@ -48,7 +48,7 @@ const { Content, headings } = await post.render();
     <ScrollTopAndComments client:only="solid-js" />
     <article>
       <header>
-        <div class="space-y-1 pb-10 dark:border-gray-700">
+        <div class="space-y-1 dark:border-gray-700">
           <dl>
             <dt class="sr-only">{t("layouts.postLayout.publishedAt")}</dt>
             <dd
@@ -196,18 +196,19 @@ const { Content, headings } = await post.render();
 
 <style>
   .test {
-  border-radius: 8px;
-  max-width: calc(100% - 64px);
+  border-radius: 10px;
+  max-width: calc(100% - 100px);
   /* ダーク時は見にくい */
-  background-color: #fff;
-  padding: 32px 56px;
+  /* background-color: yellow; */
+  padding: 32px 50px;
   margin-bottom: 24px;
 
-  font-size: 17px;
-line-height: 1.7;
-overflow-wrap: anywhere;
-font-family: sans-serif;
-color: rgb(0 0 0 / 87%);
+  /* 文字設定 */
+  font-size: 15px;
+  line-height: 1.7rem;
+  overflow-wrap: anywhere;
+  font-family: sans-serif;
+  /* color: rgb(0 0 0 / 87%); */
 
 }
 

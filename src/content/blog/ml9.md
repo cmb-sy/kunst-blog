@@ -166,7 +166,7 @@ Nadaraya-Watsonは重み付け関数であるカーネルを用いて局所的�
 
 ![blog placeholder](/src/assets/post/ml9-3.jpg)
 
-&nbsp;
+
 
 ![blog placeholder](/src/assets/post/ml9-4.jpg)
 
@@ -224,7 +224,7 @@ if __name__ == '__main__':
 
 近傍半径$\sigma=3$、$\sigma=0.8$、$\sigma=0.1$でプロットした結果を貼っていきます。
 
-&nbsp;
+
 
 ![blog placeholder](/src/assets/post/ml9-7.jpg)
 

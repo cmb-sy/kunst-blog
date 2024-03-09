@@ -22,12 +22,13 @@ const { title, description, via } = Astro.props;
   <LinkedInShareButton />
   <RedditShareButton {title} />
   <TwitterShareButton {description} {via} />
-  <span>{t("components.socialShareButtons.sharing")}</span>
+  <!-- メッセージ -->
+  <!-- <span>{t("components.socialShareButtons.sharing")}</span> -->
 </div>
 
 <style>
   :global(.social-share-btn) {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 50px;
   }
 </style>

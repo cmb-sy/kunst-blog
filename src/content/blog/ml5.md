@@ -13,8 +13,6 @@ GPLVM を python で実装をしてみました。
 <h2>概要</h2>
 ガウス過程潜在変数モデル（GPLVM）は、ガウス過程を使って（潜在的に）高次元データの低次元表現を教師なし学習する次元削減方法です。<strong>本記事では、ガウス過程の青本を参考にしています。</strong>
 
-&nbsp;
-
 <h2>問題設定</h2>
 
 $N$個の観測データを$\mathbf X = \{\mathbf x_n \}^N_{n=1},  \mathbf x_n \in \mathcal X$が与えられたとき、$\mathcal{X}$ は高次元の観測空間で、$D$次元のユークリッド空間とします。つまり$\mathcal X = \mathbb R^D$であり、データ全体は$\mathbf X \in \mathbb R^{N \times D}$と表せます。
@@ -22,8 +20,6 @@ $N$個の観測データを$\mathbf X = \{\mathbf x_n \}^N_{n=1},  \mathbf x_n 
 $\mathbf{X}$は各次元で別々の意味を持ち、近い$\mathbf{z}$同士では近い値になっていると考えます。ここで、$N$個の$\mathbf{x_n}$のそれぞれに対応した未知の$N$個の潜在変数$\mathbf{Z}=\{\mathbf{z_n}\}^N_{n=1}$からのガウス過程回帰での写像$f$によって生成されると仮定します。GPLVM は、この写像$f$を推定します。
 
 ![blog placeholder](/src/assets/post/ml5-1.jpg)
-
-&nbsp;
 
 <h2>実装</h2>
 
@@ -74,13 +70,9 @@ $$
 K(z,z^{\prime})=\theta_1\exp\left(-\frac{|z_n-z_n^{\prime}|^2}{\theta_2}\right)+\theta_3\delta(n,n^{\prime})
 $$
 
-&nbsp;
-
 <h3>潜在変数の更新と写像の推定</h3>
 
 したがって$\frac{\partial L}{\partial \mathbf z}=\frac{\partial L}{\partial \mathbf{K_z}}\frac{\partial \mathbf{K_z}}{\partial \mathbf{x}}$より、潜在変数の更新と写像の推定は以下の式で行います。
-
-&nbsp;
 
 <strong>潜在変数の更新(勾配法)</strong>
 
@@ -95,8 +87,6 @@ GPR を用いています。青本では太字を横ベクトルで表してい�
 $$
 f(\mathbf{z}) \sim \mathcal{GP}(\mathbf{K}(\mathbf{z},\mathbf{z}^{\prime})(\mathbf{K}(\mathbf{z},\mathbf{z}))^{-1}\mathbf{X},\,\,\,\,\mathbf{K}(\mathbf{z}^{\prime},\mathbf{z}^{\prime})-\mathbf{K}(\mathbf{z},\mathbf{z}^{\prime})(\mathbf{K}(\mathbf{z},\mathbf{z}))^{-1}\mathbf{K}(\mathbf{z},\mathbf{z}^{\prime}))
 $$
-
-&nbsp;
 
 <h3>実装コードと結果</h3>
 
@@ -194,8 +184,6 @@ X[:, 2] = (z1**2 - z2**2)
     print("X: {}, Y: {}, Z:{}".format(X.shape, history['f'][0].shape, history['Z'][0].shape))
     plt.show()
 ```
-
-&nbsp;
 
 ![blog placeholder](/src/assets/post/ml5-2.gif)
 
