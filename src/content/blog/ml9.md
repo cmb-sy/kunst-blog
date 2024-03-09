@@ -3,12 +3,15 @@ title: "Nadaraya-Watsonを理解したい"
 description: ""
 pubDate: "Jul 08 2023"
 pubDatetime: 2023-09-20T15:33:05.569Z
+summary: A simple blog post with a single-column layout and an optional cover banner.
+date: 2024-02-12
+postLayout: simple
 ---
 
-この記事は古川研究室 Advent Calendar24日目の記事です。
+この記事は古川研究室 Advent Calendar24 日目の記事です。
 本記事は古川研究室の学生が学習の一環として書いたものです。内容が曖昧であったり表現が多少異なったりする場合があります。
 
-1964年にNadarayaとWatsonによって考案されたNadaraya-Watsonは現在でも使われている手法です。カーネル平滑化の1つの手法であり、回帰手法の１つでもあり、局所線形回帰の兄弟のような関係を持っています。本記事では、そんなNadaraya-Watsonを理解した"<strong>い</strong>"をコンセプトに書きました。
+1964 年に Nadaraya と Watson によって考案された Nadaraya-Watson は現在でも使われている手法です。カーネル平滑化の 1 つの手法であり、回帰手法の１つでもあり、局所線形回帰の兄弟のような関係を持っています。本記事では、そんな Nadaraya-Watson を理解した"<strong>い</strong>"をコンセプトに書きました。
 
 <h2>問題設定</h2>
 Nadaraya-Watsonについて語る前に問題設定を書いておきます。
@@ -17,16 +20,16 @@ Nadaraya-Watsonについて語る前に問題設定を書いておきます。
 
 また、$x^{\ast}$を新規の入力データとして、それに対応する出力を$y^{\ast}$とします。
 
-このときに、データセットを学習して$ \mathbf{y^{\ast}} \simeq f(\mathbf{x^{\ast}})$となるような滑らかな非線形写像$f$をNadaraya-Watsonは推定します。
+このときに、データセットを学習して$ \mathbf{y^{\ast}} \simeq f(\mathbf{x^{\ast}})$となるような滑らかな非線形写像$f$を Nadaraya-Watson は推定します。
 
 <a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-01-6.55.55.png"><img class="aligncenter wp-image-1199" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-01-6.55.55.png" alt="" width="505" height="292" /></a>
 
-滑らかな非線形写像$f$をNadaraya-Watsonは推定することで、図の波線部分が推定されます。
+滑らかな非線形写像$f$を Nadaraya-Watson は推定することで、図の波線部分が推定されます。
 
 <h2>まずはざっくりと</h2>
 まず、Nadaraya-Watsonについてざっくりと書きたいと思います。
 
-Nadaraya-Watsonは、局所多項式回帰における第０次の局所線形回帰であり、0次元カーネル平滑化と言われます。Nadaraya-Watsonでは、重み付け関数であるカーネルを用いて局所的に新規のデータと学習データの距離に応じた重みを与えます。その重み平均の平均を算出することで、新規の入力$x^{\ast}$に対する出力$y^{\ast}$の推定を行います。
+Nadaraya-Watson は、局所多項式回帰における第０次の局所線形回帰であり、0 次元カーネル平滑化と言われます。Nadaraya-Watson では、重み付け関数であるカーネルを用いて局所的に新規のデータと学習データの距離に応じた重みを与えます。その重み平均の平均を算出することで、新規の入力$x^{\ast}$に対する出力$y^{\ast}$の推定を行います。
 
 わかりやすく言うと、重み付き平均における重みの決定にガウス関数を使っているということです。
 
@@ -38,12 +41,12 @@ $$K_{\sigma}(x^{\ast} , x_j) = \exp(\frac{-1}{2{\sigma}^2}||x^{\ast}- x_j||^2)$$
 
 $K_{\sigma}(x^{\ast} , x_j)$は<span class="st-mymarker-s">任意の</span>カーネル関数であり、上記の式の場合はガウシアンカーネルです。新規のデータ$x^{\ast}$と学習データ$x_i$,$x_j$との距離に応じて重みを決定します。
 
-Nadaraya-Watsonは局所多項式回帰における第０次の局所線形回帰ですが、1次になると局所線形回帰と言われます。第１次の局所線形回帰について詳しくは<a href="https://qiita.com/tanacchi/items/5de94bf6181ddb65cfd0">こちら</a>に詳しく説明されています。
+Nadaraya-Watson は局所多項式回帰における第０次の局所線形回帰ですが、1 次になると局所線形回帰と言われます。第１次の局所線形回帰について詳しくは<a href="https://qiita.com/tanacchi/items/5de94bf6181ddb65cfd0">こちら</a>に詳しく説明されています。
 
 <h2>Nadaraya-Watsonの位置付け</h2>
 Nadaraya-Watson推定はカーネル回帰でもあり、カーネル平滑化の1つの手法でもあり、カーネル密度推定とも関係しています。
 
-Nadaraya-Watson推定のカーネル回帰やカーネル平滑化、カーネル密度推定における位置付けを明確にしておきます。
+Nadaraya-Watson 推定のカーネル回帰やカーネル平滑化、カーネル密度推定における位置付けを明確にしておきます。
 
 <h3>カーネル回帰とは</h3>
 カーネル回帰は、確率変数の条件付き期待値を推定するためのノンパラメトリック手法です。<span class="st-mymarker-s"> 目的は確率変数$X$と$Y$の非線形関係を見つけることになります。</span>
@@ -56,7 +59,7 @@ $$E(Y|X)=f(X)$$
 
 サイコロの例で考える。
 
-形の異なる二つのサイコロを投げて大きいほうのサイコロの目を$X$、小さいほうのサイコロの目を$Y$とする。条件付き期待値を計算したい確率変数を2つのサイコロの目の積$XY$とし、$Y=3$という情報が分かっているとする。 このとき、ありうる可能性は$(X,Y)=(1,3),(2,3),(3,3),(4,3),(5,3),(6,3)$の6通りであり、それぞれ確率16であるので
+形の異なる二つのサイコロを投げて大きいほうのサイコロの目を$X$、小さいほうのサイコロの目を$Y$とする。条件付き期待値を計算したい確率変数を 2 つのサイコロの目の積$XY$とし、$Y=3$という情報が分かっているとする。 このとき、ありうる可能性は$(X,Y)=(1,3),(2,3),(3,3),(4,3),(5,3),(6,3)$の 6 通りであり、それぞれ確率 16 であるので
 
 $$E[XY|Y=3]=1 \cdot 3 \cdot \frac{1}{6} + \cdots + 6 \cdot 3 \cdot \frac{1}{6} = \frac{21}{2}$$
 となる。同様に$Y=y$がわかっていると
@@ -82,18 +85,18 @@ $$E[X|Y]=f(Y)$$
 
 [/st-slidebox]
 
-この形から回帰手法として、Nadaraya-Watson推定の式があるのです。
+この形から回帰手法として、Nadaraya-Watson 推定の式があるのです。
 
 <h3>カーネル平滑化</h3>
 カーネル平滑化は、近傍な観測データに対して局所的に重み付けをして単純なモデルをあてはめて実数値関数を推定するための統計手法です。
 
 <span class="st-mymarker-s">目的は、実数値関数を推定することからわかるように観測データを使って観測データの重要パターンや傾向を発見したり、予測をすることになります<span class="st-mymarker-s">。</span></span>
 
-カーネル平滑化において、単純なモデルに直線(1次)を当てはめるカーネル平滑化を1次のカーネル平滑化として局所線形回帰といいます。曲線(2次)を当てはめれば2次のカーネル平滑化です。そして、N次のカーネル平滑化は局所多項式回帰と呼ばれます。
+カーネル平滑化において、単純なモデルに直線(1 次)を当てはめるカーネル平滑化を 1 次のカーネル平滑化として局所線形回帰といいます。曲線(2 次)を当てはめれば 2 次のカーネル平滑化です。そして、N 次のカーネル平滑化は局所多項式回帰と呼ばれます。
 
-Nadaraya-Watson推定は、直線や曲線を当てはめずに単に観測データに対して局所的に平均をとるので0次のカーネル平滑化と言われています。
+Nadaraya-Watson 推定は、直線や曲線を当てはめずに単に観測データに対して局所的に平均をとるので 0 次のカーネル平滑化と言われています。
 
-Nadaraya-Watsonや局所線形回帰では、推定すべき回帰関数の曲率が大きいところでは比較的大きなバイアスが生じるデメリットがあります。分散の方を気にせずに、バイアスを縮小するなら局所多項式回帰を使います。
+Nadaraya-Watson や局所線形回帰では、推定すべき回帰関数の曲率が大きいところでは比較的大きなバイアスが生じるデメリットがあります。分散の方を気にせずに、バイアスを縮小するなら局所多項式回帰を使います。
 
 カーネル平滑化の目的と回帰手法の目的は一致します。また、上の文で回帰というワードが出てきていますように平滑化は回帰と見なせるので、カーネル回帰とカーネル平滑化は<span class="st-mymarker-s">断言はできませんが<span class="st-mymarker-s">ほぼ同じ</span></span>ものと考えていいと思います。
 
@@ -115,11 +118,11 @@ $$f(x,y)=\frac{1}{n}\sum_{i=1}^nK_{\sigma}(x^{\ast},x_i)K_{\sigma}(y^{\ast},y_i)
 
 $$f(x)=\frac{1}{n}\sum_{i=1}^nK_{\sigma}(x^{\ast},x_i)$$
 
-したがって、これらを代入して変形していくとNadaraya-Watsonの式が導出されます。
+したがって、これらを代入して変形していくと Nadaraya-Watson の式が導出されます。
 
 $$\begin{equation*}\begin{split}E(Y|X=x)&amp;= \int \frac{y\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^nK_{\sigma}(x^{\ast}, x_j)}dy\\&amp;=\frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast},x_i) \int y K_{\sigma}(y^{\ast}, y_i)}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast}, x_j)}dy \\ &amp;= \frac{\sum_{i=1}^{n}K_{\sigma}(x^{\ast}, x_i)y_i}{\sum_{j=1}^{n}K_{\sigma}(x^{\ast},x_j)}\end{split}\end{equation*}$$
 
-二変量の同時分布$f(x,y)$をカーネル密度推定で推定した時、条件付き分布$f(y|x)$の平均値はNadaraya-Watsonと一致します。
+二変量の同時分布$f(x,y)$をカーネル密度推定で推定した時、条件付き分布$f(y|x)$の平均値は Nadaraya-Watson と一致します。
 
 <h3>Nadaraya-Watsonの様々な呼び方</h3>
 上記で述べたようにNadaraya-Watsonはカーネル平滑化やカーネル回帰、カーネル密度推定と関係を持っています。ゆえに様々な呼び方で呼ばれます。その呼び方を以下にまとめておきます。
@@ -150,7 +153,7 @@ Nadaraya-Watsonは重み付け関数であるカーネルを用いて局所的�
 <a href="https://cmbnur.com/wp-content/uploads/ああああ-2.png"><img class="aligncenter wp-image-1229" src="https://cmbnur.com/wp-content/uploads/ああああ-2.png" alt="" width="756" height="425" /></a>
 
 局所的に新規のデータと学習データの距離に応じた重みを与えることで写像$f$の推定を行っているのがなんとなく<span class="hutoaka"><span class="huto">イメージ</span></span>できたと思います。
-Nadaraya-Watsonでは上記の青点線の組み合わせのような感じです。
+Nadaraya-Watson では上記の青点線の組み合わせのような感じです。
 
 このときの誤差の重みを決める関数(カーネル関数)$K_{\sigma}(x^{\ast} , x)$は以下の式で表されるとします。
 
@@ -214,7 +217,7 @@ if __name__ == '__main__':
 <a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-14.01.07.jpg"><img class="aligncenter wp-image-1237" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-14.01.07.jpg" alt="" width="579" height="438" /></a>
 
 近傍半径が$0.1$のとき推定値$f(x)$は入力$x$に最も近いデータ$x_i$に対応する$y_i$の値をとるようになっています。
-これは、Nadaraya-Watsonに次のことが成り立つからです。
+これは、Nadaraya-Watson に次のことが成り立つからです。
 
 [st-mybox title="" fontawesome="" color="#757575" bordercolor="#f3f3f3" bgcolor="#f3f3f3" borderwidth="0" borderradius="5" titleweight="bold" fontsize="" myclass="st-mybox-class" margin="25px 0 25px 0"]
 
@@ -223,7 +226,7 @@ $$ f(x) \simeq y\_{i^\ast}\,, i^\ast = \underset{i}{argmin}(x - x_i)$$
 
 [/st-mybox]
 
-近傍半径が小さすぎると、最も近い学習データにのみ影響を受け、その値になるのです。そのため、学習データ間の中間付近ではステップ関数のような挙動が見られるのです。これは、K近傍法の$k$の数1のときの結果と同じです。
+近傍半径が小さすぎると、最も近い学習データにのみ影響を受け、その値になるのです。そのため、学習データ間の中間付近ではステップ関数のような挙動が見られるのです。これは、K 近傍法の$k$の数 1 のときの結果と同じです。
 
 最後に、近傍半径を小さくしていくとどうなるのかの動画を載せておきます。
 

@@ -3,6 +3,9 @@ title: "線形回帰モデルのDualとカーネル関数について"
 description: ""
 pubDate: "Jul 08 2023"
 pubDatetime: 2023-09-20T15:33:05.569Z
+summary: A simple blog post with a single-column layout and an optional cover banner.
+date: 2024-02-12
+postLayout: simple
 ---
 
 &nbsp;
@@ -11,13 +14,15 @@ pubDatetime: 2023-09-20T15:33:05.569Z
 
 最近、線形回帰モデルについて勉強したので忘れないうちにまとめてみました。
 
-本記事では、カーネル関数を用いて線形回帰モデルのDualを求め、そこからカーネルの世界へ拡張しました。
+本記事では、カーネル関数を用いて線形回帰モデルの Dual を求め、そこからカーネルの世界へ拡張しました。
 
 <h2>線形回帰モデル</h2>
 
 線形回帰モデルは基底関数による特徴ベクトル$\varphi(x)$を用いることで複雑な関数を表現します。
 
-$f(x)=w_1\varphi_2(x)+w_2\varphi_2(x)+\dots+w_m\varphi_m(x)=\sum_{i}^{m}w_{i}\varphi_{i}(x)$
+$$
+f(x)=w_1\varphi_2(x)+w_2\varphi_2(x)+\dots+w_m\varphi_m(x)=\sum_{i}^{m}w_{i}\varphi_{i}(x)
+$$
 
 基底関数$\varphi(x)$と重み$w$について行列で表すと次のように変形できます。
 
@@ -117,7 +122,7 @@ $$k(x^{\ast})=\boldsymbol\Phi^T \boldsymbol \varphi(x^{\ast})=\left[ \begin{arra
 
 $$f(x^{\ast})=\mathbf{y}^T(K+\lambda I )^{-1}k(x^{\ast})$$
 
-したがって、線形回帰モデルでは次の２つのDualな表現ができます。
+したがって、線形回帰モデルでは次の２つの Dual な表現ができます。
 
 $$f(x^{\ast})=\mathbf{w}^T\boldsymbol \varphi(x)\,\,\,\,\,,\mathbf{w}=(\boldsymbol \Phi^T \boldsymbol \Phi+ \lambda I)^{-1}\mathbf{y}$$
 
@@ -153,9 +158,9 @@ $$k(x,x^{\prime})=\boldsymbol \varphi(x)^T\boldsymbol \varphi(x^{\prime})$$
 
 ここまでのカーネルことをまとめると
 
-データ成分で記述されるような線形手法の問題があったときに、それをDualな表現で表すと、内積に置き換えることができます。そして、それをカーネルに置き換えることで非線形の表現で表すことができるということです。
+データ成分で記述されるような線形手法の問題があったときに、それを Dual な表現で表すと、内積に置き換えることができます。そして、それをカーネルに置き換えることで非線形の表現で表すことができるということです。
 
-つまり、どんな線形手法でもDualな表現に置き換えることで、カーネル法が適応できて<span class="st-mymarker-s">非線形手法に拡張することができます。</span>
+つまり、どんな線形手法でも Dual な表現に置き換えることで、カーネル法が適応できて<span class="st-mymarker-s">非線形手法に拡張することができます。</span>
 
 また、このとき数値ではないデータ(文字列、グラフ、テキスト)にも内積(類似度)を定義することができるという特徴があります。
 

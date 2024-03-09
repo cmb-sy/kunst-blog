@@ -3,11 +3,14 @@ title: "タイタニックしてみた"
 description: ""
 pubDate: "Jul 08 2023"
 pubDatetime: 2023-09-20T15:33:05.569Z
+summary: A simple blog post with a single-column layout and an optional cover banner.
+date: 2024-02-12
+postLayout: simple
 ---
 
-本記事は、Kaggleで最も有名な<a href="https://www.kaggle.com/c/titanic">タイタニック</a>のテーマに対して、CSVファイルの取得から実際にスコアが出るところまでを行いたいと思います。
+本記事は、Kaggle で最も有名な<a href="https://www.kaggle.com/c/titanic">タイタニック</a>のテーマに対して、CSV ファイルの取得から実際にスコアが出るところまでを行いたいと思います。
 
-kaggleの登録や、kaggleとは何かについては別記事を参考にしてください
+kaggle の登録や、kaggle とは何かについては別記事を参考にしてください
 
 <h2>CSV取得からスコア算出までのざっくりとした流れ</h2>
 本記事ではスコア算出までの流れとして、以下の順で進めていきたいと思います。
@@ -59,10 +62,10 @@ print(df_test.info())
 
 <a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-15.47.51.jpg"><img class="aligncenter wp-image-2018" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-15.47.51.jpg" alt="" width="561" height="898" /></a>
 
-Object型が何個かあるのがわかります。Object型は学習できないので加工する必要があります。少なくとも5つのカラムについては消すか加工する必要がありそうです。
+Object 型が何個かあるのがわかります。Object 型は学習できないので加工する必要があります。少なくとも 5 つのカラムについては消すか加工する必要がありそうです。
 
-訓練データは891レコードと12カラムあるのがわかります。
-テストデータは417レコードと11カラムあるのがわかります。
+訓練データは 891 レコードと 12 カラムあるのがわかります。
+テストデータは 417 レコードと 11 カラムあるのがわかります。
 
 &nbsp;
 
@@ -70,21 +73,21 @@ Object型が何個かあるのがわかります。Object型は学習できな�
 seabornのbarplotを用いてSurvivedとの関係を可視化していきます。
 Survivedはデータが0か1で表わされます。0が死亡で1が生存になります。
 
-このSurvivedに対して、任意のカラムに対してどれくらい生き残っているかを見ていきたいと思います。
-例えば、Sexならば、男性と女性で生存割合はどれくらい違うのかなどです。
+この Survived に対して、任意のカラムに対してどれくらい生き残っているかを見ていきたいと思います。
+例えば、Sex ならば、男性と女性で生存割合はどれくらい違うのかなどです。
 
-一個一個のカラムで確認するのが面倒なので、for文で一気にプロットしてまとめて確認したいと思います。
+一個一個のカラムで確認するのが面倒なので、for 文で一気にプロットしてまとめて確認したいと思います。
 ここで棒グラフでプロットするときに注意なのは、データの種類が多い場合です。
 横軸のカラムのデータの種類が多いと、比率なんてわかったもんじゃありません。
 
-例えば、AgeとSurvivedの関係を可視化すると次のようになります。
-Ageのデータの種類（年齢の違い）が多すぎて、何がなんなのかわかりません。
+例えば、Age と Survived の関係を可視化すると次のようになります。
+Age のデータの種類（年齢の違い）が多すぎて、何がなんなのかわかりません。
 
 <a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-14.48.16.jpg"><img class="aligncenter wp-image-2013" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-14.48.16.jpg" alt="" width="909" height="556" /></a>
 
 <code class="python"></code>
 
-そのため、データの種類の少ないと思われるPclass、Sex、Embarked、Parch、SibSipを一気に可視化したいと思います。
+そのため、データの種類の少ないと思われる Pclass、Sex、Embarked、Parch、SibSip を一気に可視化したいと思います。
 
 ```python
 fig, axes = plt.subplots(3, 2, figsize=(16, 12))
@@ -217,7 +220,7 @@ dtype: int64
 
 &nbsp;
 
-Cabin、Age、Embarked、Fareに欠損値を含んでいます。
+Cabin、Age、Embarked、Fare に欠損値を含んでいます。
 
 これらのカラムは削除するか加工する必要がありそうです。
 
@@ -274,9 +277,9 @@ df_test["Fare"] = df_test["Fare"].fillna(df_test["Fare"].median())
 </ul>
 Nameは種類が多すぎるので学習には用いません。そのため無視です。
 
-Sexは、男性を0、女性を1にします。
+Sex は、男性を 0、女性を 1 にします。
 
-Embarkedは、Sを0、Cを1、Qを2にします。
+Embarked は、S を 0、C を 1、Q を 2 にします。
 
 ```python
 # カテゴリカル変数の変換
@@ -298,10 +301,10 @@ Embarkedは、Sを0、Cを1、Qを2にします。
 
 &nbsp;
 
-ParchとSibSpを見ると、同乗した親族が多いほど生存率が低いのがわかります。
+Parch と SibSp を見ると、同乗した親族が多いほど生存率が低いのがわかります。
 
-ですので、ParchとSibSpを組み合わせてFamilySizeという新たなカラムを作成します。
-コード内の1は乗船した本人の数です。
+ですので、Parch と SibSp を組み合わせて FamilySize という新たなカラムを作成します。
+コード内の 1 は乗船した本人の数です。
 
 ```python
 # 1は乗車本人の数
@@ -322,7 +325,7 @@ plt.show()
 そのため、Survivedと他のカラムの相関関係を見ていきたいと思います。
 
 今回は、ピアソンの積率相関係数、スピアマンの順位連関係数を用いて相関関係を見ていきたいと思います。
-pandasのメソッドを用いることで容易に扱うことができます。
+pandas のメソッドを用いることで容易に扱うことができます。
 
 ```python
 # 相関係数の算出
@@ -355,14 +358,14 @@ plt.show()
 </ul>
 相関係数はカラム間の<strong>線形関係</strong>がわかるのですが、何だか物足りない気がしますね。
 
-本当は相互情報量を見て、Survivedとの関連性を見るのがいいのですが、今回はやめておきます。
+本当は相互情報量を見て、Survived との関連性を見るのがいいのですが、今回はやめておきます。
 
 &nbsp;
 
 <h2>学習</h2>
 モデルの学習を行います。
 
-今回は、ランダムフォレストというものを使っていきたいと思います。sklearnから引っ張ってきます。（<a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">sklearnのランダムフォレスト</a>）
+今回は、ランダムフォレストというものを使っていきたいと思います。sklearn から引っ張ってきます。（<a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">sklearn のランダムフォレスト</a>）
 
 &nbsp;
 
@@ -411,7 +414,7 @@ change_submit_file("PassengerId", "Survived", df_test, pridict)
 
 &nbsp;
 
-保存されたCSVファイルを提出すれば終わりです。
+保存された CSV ファイルを提出すれば終わりです。
 
 結果は........<span style="font-size: 20px;"><strong>Score: 0.74880</strong></span>
 

@@ -3,9 +3,12 @@ title: "GPLVMを実装してみた"
 description: ""
 pubDate: "Jul 08 2023"
 pubDatetime: 2023-09-20T15:33:05.569Z
+summary: A simple blog post with a single-column layout and an optional cover banner.
+date: 2024-02-12
+postLayout: simple
 ---
 
-GPLVMをpythonで実装をしてみました。
+GPLVM を python で実装をしてみました。
 
 &nbsp;
 
@@ -19,7 +22,7 @@ GPLVMをpythonで実装をしてみました。
 <h2>問題設定</h2>
 <span id="MathJax-Element-1-Frame" class="MathJax" style="box-sizing: inherit; display: inline-block; font-style: normal; font-weight: 400; line-height: normal; font-size: 16px; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: 0px; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: 100%; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; overflow: auto hidden; vertical-align: text-top; color: #333333; font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', メイリオ, meiryo, sans-serif; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; widows: 2; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; position: relative;" tabindex="0" role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;/math&gt;"><span id="MathJax-Span-1" class="math" role="math"><span id="MathJax-Span-2" class="mrow"><span id="MathJax-Span-3" class="mi">$N$</span></span></span></span>個の観測データを$\mathbf X = \{\mathbf x_n \}^N_{n=1},  \mathbf x_n \in \mathcal X$が与えられたとき、$\mathcal{X}$ は高次元の観測空間で、$D$次元のユークリッド空間とします。つまり$\mathcal X = \mathbb R^D$であり、データ全体は$\mathbf X \in \mathbb R^{N \times D}$と表せます。
 
-$\mathbf{X}$は各次元で別々の意味を持ち、近い$\mathbf{z}$同士では近い値になっていると考えます。ここで、$N$個の$\mathbf{x_n}$のそれぞれに対応した未知の$N$個の潜在変数$\mathbf{Z}=\{\mathbf{z_n}\}^N_{n=1}$からのガウス過程回帰での写像$f$によって生成されると仮定します。GPLVMは、この写像$f$を推定します。
+$\mathbf{X}$は各次元で別々の意味を持ち、近い$\mathbf{z}$同士では近い値になっていると考えます。ここで、$N$個の$\mathbf{x_n}$のそれぞれに対応した未知の$N$個の潜在変数$\mathbf{Z}=\{\mathbf{z_n}\}^N_{n=1}$からのガウス過程回帰での写像$f$によって生成されると仮定します。GPLVM は、この写像$f$を推定します。
 
 <a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-03-25-18.13.44.png"><img class="aligncenter wp-image-1649" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-03-25-18.13.44.png" alt="" width="544" height="344" /></a>
 
@@ -41,7 +44,7 @@ $$p(\mathbf{X})=\prod_{n=1}^N p(\mathbf{z_n}),\,\,\,\,p(\mathbf{x})=N(0,\mathbf{
 
 $$p(\mathbf{X},\mathbf{Z})=p(\mathbf{X}|\mathbf{Z})p(\mathbf{Z})=\prod_{d=1}^DN(\mathbf{x}|0,\mathbf{K_z}+\sigma^2\mathbf{I})\prod_{n=1}^NN(\mathbf{z_n}|0,\mathbf{I_K})$$
 
-GPLVMでは、この式(が最大となるような$\mathbf{Z}$を見つけます。
+GPLVM では、この式(が最大となるような$\mathbf{Z}$を見つけます。
 
 詳細な計算は省きますが、この式を変形して対数尤度を考えると下記の式になります。このとき、青本では$\prod_{n=1}^NN(\mathbf{z_n}|0,\mathbf{I_K})$の対数尤度(おそらく正則化項)は無視しています・
 
@@ -71,7 +74,7 @@ $$\mathbf{z}=\mathbf{z}+\frac{\partial L}{\partial \mathbf z}$$
 
 <strong>写像の推定</strong>
 
-GPRを用いています。青本では太字を横ベクトルで表していますが、実装するときは縦ベクトルで考えているので転置のところは消えています。
+GPR を用いています。青本では太字を横ベクトルで表していますが、実装するときは縦ベクトルで考えているので転置のところは消えています。
 
 $$f(\mathbf{z}) \sim \mathcal{GP}(\mathbf{K}(\mathbf{z},\mathbf{z}^{\prime})(\mathbf{K}(\mathbf{z},\mathbf{z}))^{-1}\mathbf{X},\,\,\,\,\mathbf{K}(\mathbf{z}^{\prime},\mathbf{z}^{\prime})-\mathbf{K}(\mathbf{z},\mathbf{z}^{\prime})(\mathbf{K}(\mathbf{z},\mathbf{z}))^{-1}\mathbf{K}(\mathbf{z},\mathbf{z}^{\prime}))$$
 
@@ -178,7 +181,7 @@ X[:, 2] = (z1**2 - z2**2)
 
 <a href="https://cmbnur.com/wp-content/uploads/tmp.gif"><img class="aligncenter wp-image-1656" src="https://cmbnur.com/wp-content/uploads/tmp.gif" alt="" width="536" height="268" /></a>
 
-右図が観測空間上での推定した多様体の学習過程で、右図はその時の潜在変数です。ハイパーパラメータを手動で探しましたが、綺麗に描画してくれるのを見つけるのに苦労しました。コンマ単位でハイパーパラメータを変えると描画ができなくなってしまいます。GPLVMがそれだけ繊細なモノということを実感しました。
+右図が観測空間上での推定した多様体の学習過程で、右図はその時の潜在変数です。ハイパーパラメータを手動で探しましたが、綺麗に描画してくれるのを見つけるのに苦労しました。コンマ単位でハイパーパラメータを変えると描画ができなくなってしまいます。GPLVM がそれだけ繊細なモノということを実感しました。
 
 <h2>参考文献</h2>
 <blockquote>

@@ -3,6 +3,9 @@ title: "固有値と固有ベクトルについて"
 description: ""
 pubDate: "Jul 08 2023"
 pubDatetime: 2023-09-20T15:33:05.569Z
+summary: A simple blog post with a single-column layout and an optional cover banner.
+date: 2024-02-12
+postLayout: simple
 ---
 
 固有値と固有ベクトルについては機械学習の理解をするには必要不可欠なので線形代数などで登場する固有値と固有ベクトルについて書いてみました。
