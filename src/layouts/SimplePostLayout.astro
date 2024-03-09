@@ -62,13 +62,13 @@ const { Content, headings } = await post.render();
           <br>
             <FormattedDate date={post.data.date} />
         </div>
-        <!-- {
+        {
           post.data.cover && POST_METADATA.showCover && (
             <div class="space-y-1 pb-10 text-center dark:border-gray-700">
               <PostCover {post} />
             </div>
           )
-        } -->
+        }
         <!-- {
           POST_METADATA.showSummary && (
             <div class="pb-10 text-center border-b border-gray-200">
@@ -124,12 +124,9 @@ const { Content, headings } = await post.render();
             </DetailsSummary>
           )
         }
-        <!-- <div
-          class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
-        > -->
         <div
-        class="test2"
-      >
+          class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
+        >
         <div>
         <!-- クラスは記事の文字に適応される -->
           <!-- <div class="prose max-w-none pb-8 pt-10 px-90 dark:prose-invert"> -->
@@ -197,32 +194,17 @@ const { Content, headings } = await post.render();
 <style>
   .test {
   border-radius: 10px;
-  max-width: calc(100% - 100px);
+  /* max-width: calc(100% - 100px); */
   /* ダーク時は見にくい */
   /* background-color: yellow; */
-  padding: 32px 50px;
+  /* padding: 32px 50px; */
   margin-bottom: 24px;
 
   /* 文字設定 */
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7rem;
-  overflow-wrap: anywhere;
   font-family: sans-serif;
   /* color: rgb(0 0 0 / 87%); */
-
-}
-
-.test2{
-  max-width: calc(100% - 64px);
-  width: 100%;
-}
-
-.test3{
-  font-size: 17px;
-line-height: 1.7;
-overflow-wrap: anywhere;
-font-family: sans-serif;
-color: rgb(0 0 0 / 87%);
 
 }
 </style>
