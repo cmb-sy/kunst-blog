@@ -9,7 +9,7 @@ const authors = defineCollection({
     occupation: z.string().optional(),
     shortBio: z.string(),
     company: z.string().optional(),
-    email: z.string().email(),
+    email: z.string().email().optional(),
     twitter: z.string().url().optional(),
     linkedin: z.string().url().optional(),
     github: z.string().url().optional(),
