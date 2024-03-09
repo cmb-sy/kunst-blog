@@ -6,7 +6,7 @@
 export const SITE_METADATA = {
   theme: "system", // Options: system, light, dark
   siteUrl: "https://cmb-sy.com",
-  siteRepo: "https://github.com/wanoo21/tailwind-astro-starting-blog",
+  siteRepo: "https://github.com/cmb-sy/kunst-blog",
   robots: "index, follow", // Options: index, noindex, follow, nofollow
 
   // These are not supported yet
@@ -101,7 +101,6 @@ export const NAVIGATION = [
   { href: "/", title: "nav.home" },
   { href: "/blog", title: "nav.blog" },
   { href: "/tags", title: "nav.tags" },
-  { href: "/projects", title: "nav.projects" },
   { href: "/about", title: "nav.about" },
 ] as const;
 

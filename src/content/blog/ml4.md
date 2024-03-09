@@ -37,7 +37,7 @@ print(df_train.head(5))
 
 結果は次のようになります。
 
-<pre><a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-03-19.44.50.png"><img class="aligncenter wp-image-1975" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-03-19.44.50.png" alt="" width="899" height="217" /></a></pre>
+![blog placeholder](/src/assets/post/ml4-1.jpg)
 
 &nbsp;
 
@@ -60,7 +60,7 @@ print(df_test.info())
 
 &nbsp;
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-15.47.51.jpg"><img class="aligncenter wp-image-2018" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-15.47.51.jpg" alt="" width="561" height="898" /></a>
+![blog placeholder](/src/assets/post/ml4-2.jpg)
 
 Object 型が何個かあるのがわかります。Object 型は学習できないので加工する必要があります。少なくとも 5 つのカラムについては消すか加工する必要がありそうです。
 
@@ -83,7 +83,7 @@ Survivedはデータが0か1で表わされます。0が死亡で1が生存に�
 例えば、Age と Survived の関係を可視化すると次のようになります。
 Age のデータの種類（年齢の違い）が多すぎて、何がなんなのかわかりません。
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-14.48.16.jpg"><img class="aligncenter wp-image-2013" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-14.48.16.jpg" alt="" width="909" height="556" /></a>
+![blog placeholder](/src/assets/post/ml4-3.jpg)
 
 <code class="python"></code>
 
@@ -100,7 +100,8 @@ fig, axes = plt.subplots(3, 2, figsize=(16, 12))
  plt.show()
 ```
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-20.56.55.png"><img class="aligncenter size-full wp-image-2055" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-20.56.55.png" alt="" width="2578" height="1590" /></a>
+![blog placeholder](/src/assets/post/ml4-5.jpg)
+
 それぞれのカラムの意味をまとめておきます。
 
 <ul>
@@ -166,7 +167,7 @@ fig, axes = plt.subplots(3, 2, figsize=(16, 12))
   plt.show()
 ```
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-16.42.06.jpg"><img class="aligncenter size-full wp-image-2023" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-09-16.42.06.jpg" alt="" width="2022" height="1062" /></a>
+![blog placeholder](/src/assets/post/ml4-6.jpg)
 
 それぞれのカラムの意味をまとめておきます。
 
@@ -315,7 +316,7 @@ sns.countplot(x='FamilySize', data = df_train, hue = 'Survived')
 plt.show()
 ```
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-20.54.13.png"><img class="aligncenter size-full wp-image-2054" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-20.54.13.png" alt="" width="2524" height="1502" /></a>
+![blog placeholder](/src/assets/post/ml4-7.jpg)
 
 &nbsp;
 
@@ -344,7 +345,7 @@ plt.ylim(df_spearman.shape[1],0)
 plt.show()
 ```
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-21.02.02.jpg"><img class="aligncenter size-full wp-image-2056" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-21.02.02.jpg" alt="" width="2408" height="1622" /></a><a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-21.03.06.jpg"><img class="aligncenter size-full wp-image-2057" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-12-21.03.06.jpg" alt="" width="2324" height="1642" /></a>
+![blog placeholder](/src/assets/post/ml4-8.jpg)
 
 値が大きいものに着目してまとめると
 

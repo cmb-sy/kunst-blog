@@ -22,7 +22,7 @@ postLayout: simple
 
 機械学習では学習フェーズが重要視されていて、多くの研究がされています。
 
-![blog placeholder](/public/ml1-1.jpg)
+![blog placeholder](/src/assets/post/ml1-1.jpg)
 
 &nbsp;
 
@@ -31,9 +31,7 @@ postLayout: simple
 
 &nbsp;
 
-![blog placeholder](/public/ml1-1.jpg)
-
-<!-- <a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-25-17.47.40.png"><img class="aligncenter wp-image-1924" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-25-17.47.40.png" alt="" width="637" height="370" /></a> -->
+![blog placeholder](/src/assets/post/ml1-2.jpg)
 
 &nbsp;
 
@@ -45,11 +43,9 @@ postLayout: simple
 
 例えば、アイスの売り上げを、その日の気温から予測したい場合を考えます。
 
-<img class="aligncenter wp-image-1937" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-25-19.08.04.png" alt="" width="306" height="202" />
+![blog placeholder](/src/assets/post/ml1-3.jpg)
 
 過去の気温のデータに対して、その気温のときの売り上げがわかっているとき、その売り上げというのは気温データに対する<strong>正解データ</strong>になります。このデータセットを図で示すと以下のようになります。25 度のときは 80 万円の売り上げ、32 度のときは 120 万円の売り上げ、14 度のときは 10 万円の売り上げがあったというデータセットになります。
-
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-25-19.27.54.png"><img class="aligncenter wp-image-1939" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-25-19.27.54.png" alt="" width="267" height="200" /></a>
 
 このデータセットをモデルに学習させた後、新規の気温データに対する売り上げを予測してもらうのです。
 
@@ -57,7 +53,9 @@ postLayout: simple
  	<li>過去の売り上げデータからモデルを学習します。</li>
  	<li>学習したモデルに対して、25度、32度、28度.....の気温のときの予測を行います。その結果、45万円、100万円、50万円...と予想結果が出力されるのです。</li>
 </ol>
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-25-19.28.18.jpg"><img class="aligncenter wp-image-1940" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-25-19.28.18.jpg" alt="" width="505" height="381" /></a>
+
+![blog placeholder](/src/assets/post/ml1-4.jpg)
+
 <h3>説明変数と目的変数</h3>
 機械学習で扱うデータは、説明変数と目的変数と呼ばれます。説明変数とは、<strong>現象や値を説明する変数</strong>で気温データが該当します。
 目的変数とは、<strong>説明変数によって発生した結果を表す変数</strong>で売り上げデータが該当します。機械学習では、説明変数と目的変数を用いて学習と予測を行います。
@@ -132,7 +130,7 @@ postLayout: simple
 
 また、高次元のデータをモデルが学習するとき、非常に時間がかかってしまいます。そのため、次元削減を行うことで低次元へ落とし学習を高速にすることができるのです。
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-27-7.09.11.jpg"><img class="aligncenter wp-image-1958" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-09-27-7.09.11.jpg" alt="" width="510" height="331" /></a>
+![blog placeholder](/src/assets/post/ml1-5.jpg)
 
 &nbsp;
 
@@ -141,7 +139,7 @@ postLayout: simple
 クラスタリングは入力データの特徴を抽出し、その特徴の類似度にもとづいて、データをグループ分けする手法です。
 クラスタリングは様々なところで活用されており、amazon のオススメの商品の表示などがあります。過去の購買データをクラスタリングし、同じグループの商品を紹介したりしています。
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-01-17.50.44.png"><img class="aligncenter wp-image-1963" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-01-17.50.44.png" alt="" width="537" height="238" /></a>
+![blog placeholder](/src/assets/post/ml1-6.jpg)
 
 <h2>教師あり学習と教師なし学習の違い</h2>
 

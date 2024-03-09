@@ -30,8 +30,7 @@ $$
 
 算出された２次元ベクトルを見てみると、ベクトルの方向が変わっていることがわかります。このように、ベクトルは行列との演算によって並進や回転、拡大などの変換作用がなされます。
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-11-21.09.46-min.png"><img class="aligncenter  wp-image-1337" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-11-21.09.46-min.png" alt="" width="580" height="362" /></a>
-
+![blog placeholder](/src/assets/post/ml7-1.jpg)
 &nbsp;
 
 ベクトルは行列との演算によって並進や回転、拡大などの変換作用がなされるわけですが、ベクトルの方向は全く変わらず大きさだけ変化するケースも存在します。
@@ -54,7 +53,7 @@ $$
 
 &nbsp;
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-11-21.23.10-min.png"><img class="aligncenter  wp-image-1338" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-11-21.23.10-min.png" alt="" width="582" height="371" /></a>
+![blog placeholder](/src/assets/post/ml7-2.jpg)
 
 <h2>固有値と固有ベクトル</h2>
 固有値と固有ベクトルの話に戻ってきました。固有値と固有ベクトルを式で表すと次の式になります。

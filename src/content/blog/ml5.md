@@ -24,7 +24,7 @@ GPLVM を python で実装をしてみました。
 
 $\mathbf{X}$は各次元で別々の意味を持ち、近い$\mathbf{z}$同士では近い値になっていると考えます。ここで、$N$個の$\mathbf{x_n}$のそれぞれに対応した未知の$N$個の潜在変数$\mathbf{Z}=\{\mathbf{z_n}\}^N_{n=1}$からのガウス過程回帰での写像$f$によって生成されると仮定します。GPLVM は、この写像$f$を推定します。
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-03-25-18.13.44.png"><img class="aligncenter wp-image-1649" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-03-25-18.13.44.png" alt="" width="544" height="344" /></a>
+![blog placeholder](/src/assets/post/ml5-1.jpg)
 
 &nbsp;
 
@@ -179,7 +179,7 @@ X[:, 2] = (z1**2 - z2**2)
 
 &nbsp;
 
-<a href="https://cmbnur.com/wp-content/uploads/tmp.gif"><img class="aligncenter wp-image-1656" src="https://cmbnur.com/wp-content/uploads/tmp.gif" alt="" width="536" height="268" /></a>
+![blog placeholder](/src/assets/post/ml5-2.gif)
 
 右図が観測空間上での推定した多様体の学習過程で、右図はその時の潜在変数です。ハイパーパラメータを手動で探しましたが、綺麗に描画してくれるのを見つけるのに苦労しました。コンマ単位でハイパーパラメータを変えると描画ができなくなってしまいます。GPLVM がそれだけ繊細なモノということを実感しました。
 

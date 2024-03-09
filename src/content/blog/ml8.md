@@ -32,7 +32,7 @@ postLayout: simple
 
 図の<strong>Dilation</strong>は、着目した画素の 8 近傍で処理しています。4 近傍で処理した場合は、また違う結果になります。
 
-<a href="https://cmbnur.com/wp-content/uploads/キャプチャ-22.png"><img class="aligncenter wp-image-1092" src="https://cmbnur.com/wp-content/uploads/キャプチャ-22.png" alt="" width="431" height="326" /></a>
+![blog placeholder](/src/assets/post/ml8-1.jpg)
 
 <h5><strong>Erosion</strong></h5>
 Erosionとは、<span style="font-weight: 400;">領域の境界のピクセルを除去する処理のことです。</span>

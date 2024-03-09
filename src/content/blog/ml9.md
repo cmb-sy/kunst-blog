@@ -8,9 +8,6 @@ date: 2024-02-12
 postLayout: simple
 ---
 
-この記事は古川研究室 Advent Calendar24 日目の記事です。
-本記事は古川研究室の学生が学習の一環として書いたものです。内容が曖昧であったり表現が多少異なったりする場合があります。
-
 1964 年に Nadaraya と Watson によって考案された Nadaraya-Watson は現在でも使われている手法です。カーネル平滑化の 1 つの手法であり、回帰手法の１つでもあり、局所線形回帰の兄弟のような関係を持っています。本記事では、そんな Nadaraya-Watson を理解した"<strong>い</strong>"をコンセプトに書きました。
 
 <h2>問題設定</h2>
@@ -22,7 +19,7 @@ Nadaraya-Watsonについて語る前に問題設定を書いておきます。
 
 このときに、データセットを学習して$ \mathbf{y^{\ast}} \simeq f(\mathbf{x^{\ast}})$となるような滑らかな非線形写像$f$を Nadaraya-Watson は推定します。
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-01-6.55.55.png"><img class="aligncenter wp-image-1199" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-01-6.55.55.png" alt="" width="505" height="292" /></a>
+![blog placeholder](/src/assets/post/ml9-1.jpg)
 
 滑らかな非線形写像$f$を Nadaraya-Watson は推定することで、図の波線部分が推定されます。
 
@@ -144,13 +141,13 @@ Nadaraya-Watsonは重み付け関数であるカーネルを用いて局所的�
 
 <span class="hutoaka"><strong>イメージ図</strong></span>は次のようになります。曲線が多少歪んで見えるかもしれないですが気にしないでください。
 
-<a href="https://cmbnur.com/wp-content/uploads/ああああ.png"><img class="aligncenter wp-image-1227" src="https://cmbnur.com/wp-content/uploads/ああああ.png" alt="" width="758" height="426" /></a>
+![blog placeholder](/src/assets/post/ml9-2.jpg)
 
-<a href="https://cmbnur.com/wp-content/uploads/ああああ-1.png"><img class="aligncenter wp-image-1228" src="https://cmbnur.com/wp-content/uploads/ああああ-1.png" alt="" width="756" height="425" /></a>
+![blog placeholder](/src/assets/post/ml9-3.jpg)
 
 &nbsp;
 
-<a href="https://cmbnur.com/wp-content/uploads/ああああ-2.png"><img class="aligncenter wp-image-1229" src="https://cmbnur.com/wp-content/uploads/ああああ-2.png" alt="" width="756" height="425" /></a>
+![blog placeholder](/src/assets/post/ml9-4.jpg)
 
 局所的に新規のデータと学習データの距離に応じた重みを与えることで写像$f$の推定を行っているのがなんとなく<span class="hutoaka"><span class="huto">イメージ</span></span>できたと思います。
 Nadaraya-Watson では上記の青点線の組み合わせのような感じです。
@@ -204,33 +201,31 @@ if __name__ == '__main__':
 
 データは$y=sin(x)$に対してガウスノイズを加えたものを使います。
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-13.50.04.png"><img class="aligncenter wp-image-1232" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-13.50.04.png" alt="" width="564" height="429" /></a>
+![blog placeholder](/src/assets/post/ml9-6.jpg)
 
 近傍半径$\sigma=3$、$\sigma=0.8$、$\sigma=0.1$でプロットした結果を貼っていきます。
 
 &nbsp;
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-13.58.47.jpg"><img class="aligncenter wp-image-1235" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-13.58.47.jpg" alt="" width="563" height="430" /></a>
+![blog placeholder](/src/assets/post/ml9-7.jpg)
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-14.00.02.jpg"><img class="aligncenter wp-image-1236" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-14.00.02.jpg" alt="" width="566" height="429" /></a>
+![blog placeholder](/src/assets/post/ml9-8.jpg)
 
-<a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-14.01.07.jpg"><img class="aligncenter wp-image-1237" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2021-02-06-14.01.07.jpg" alt="" width="579" height="438" /></a>
+![blog placeholder](/src/assets/post/ml9-9.jpg)
 
 近傍半径が$0.1$のとき推定値$f(x)$は入力$x$に最も近いデータ$x_i$に対応する$y_i$の値をとるようになっています。
 これは、Nadaraya-Watson に次のことが成り立つからです。
 
-[st-mybox title="" fontawesome="" color="#757575" bordercolor="#f3f3f3" bgcolor="#f3f3f3" borderwidth="0" borderradius="5" titleweight="bold" fontsize="" myclass="st-mybox-class" margin="25px 0 25px 0"]
-
 入力$x$、出力$y$において$ \sigma \rightarrow 0$のとき，
 $$ f(x) \simeq y\_{i^\ast}\,, i^\ast = \underset{i}{argmin}(x - x_i)$$
-
-[/st-mybox]
 
 近傍半径が小さすぎると、最も近い学習データにのみ影響を受け、その値になるのです。そのため、学習データ間の中間付近ではステップ関数のような挙動が見られるのです。これは、K 近傍法の$k$の数 1 のときの結果と同じです。
 
 最後に、近傍半径を小さくしていくとどうなるのかの動画を載せておきます。
 
-[video width="1000" height="800" mp4="https://cmbnur.com/wp-content/uploads/sigma_animation.mp4"][/video]
+<video autoplay muted="muted" controls plays-inline="true" class="border border-skin-line">
+  <source src="/src/assets/post/ml9-10.mp4" type="video/mp4">
+</video>
 
 <h2>最後に</h2>
 ここまで読んでくださってありがとうございました。
