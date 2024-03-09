@@ -7,7 +7,16 @@ pubDatetime: 2023-07-20T15:33:05.569Z
 summary: A simple blog post with a single-column layout and an optional cover banner.
 date: 2024-02-12
 postLayout: simple
+
 ---
+
+import Figure from "@/components/Figure.astro";
+import figure1 from "@/assets/post/ml1-1.jpg";
+import figure2 from "@/assets/post/ml1-2.jpg";
+import figure3 from "@/assets/post/ml1-3.jpg";
+import figure4 from "@/assets/post/ml1-4.jpg";
+import figure5 from "@/assets/post/ml1-5.jpg";
+import figure6 from "@/assets/post/ml1-6.jpg";
 
 <h4>機械学習とは</h4>
 
@@ -22,7 +31,7 @@ postLayout: simple
 
 機械学習では学習フェーズが重要視されていて、多くの研究がされています。
 
-![blog placeholder](/src/assets/post/ml1-1.jpg)
+<Figure src={figure1} alt="" />
 
 &nbsp;
 
@@ -31,7 +40,7 @@ postLayout: simple
 
 &nbsp;
 
-![blog placeholder](/src/assets/post/ml1-2.jpg)
+<Figure src={figure2} alt="" />
 
 &nbsp;
 
@@ -43,22 +52,27 @@ postLayout: simple
 
 例えば、アイスの売り上げを、その日の気温から予測したい場合を考えます。
 
-![blog placeholder](/src/assets/post/ml1-3.jpg)
+<Figure src={figure3} alt="" />
 
 過去の気温のデータに対して、その気温のときの売り上げがわかっているとき、その売り上げというのは気温データに対する<strong>正解データ</strong>になります。このデータセットを図で示すと以下のようになります。25 度のときは 80 万円の売り上げ、32 度のときは 120 万円の売り上げ、14 度のときは 10 万円の売り上げがあったというデータセットになります。
 
 このデータセットをモデルに学習させた後、新規の気温データに対する売り上げを予測してもらうのです。
 
 <ol>
- 	<li>過去の売り上げデータからモデルを学習します。</li>
- 	<li>学習したモデルに対して、25度、32度、28度.....の気温のときの予測を行います。その結果、45万円、100万円、50万円...と予想結果が出力されるのです。</li>
+  <li>過去の売り上げデータからモデルを学習します。</li>
+  <li>
+    学習したモデルに対して、25度、32度、28度.....の気温のときの予測を行います。その結果、45万円、100万円、50万円...と予想結果が出力されるのです。
+  </li>
 </ol>
 
-![blog placeholder](/src/assets/post/ml1-4.jpg)
+<Figure src={figure4} alt="" />
 
 <h3>説明変数と目的変数</h3>
-機械学習で扱うデータは、説明変数と目的変数と呼ばれます。説明変数とは、<strong>現象や値を説明する変数</strong>で気温データが該当します。
-目的変数とは、<strong>説明変数によって発生した結果を表す変数</strong>で売り上げデータが該当します。機械学習では、説明変数と目的変数を用いて学習と予測を行います。
+機械学習で扱うデータは、説明変数と目的変数と呼ばれます。説明変数とは、<strong>
+  現象や値を説明する変数
+</strong>で気温データが該当します。 目的変数とは、<strong>
+  説明変数によって発生した結果を表す変数
+</strong>で売り上げデータが該当します。機械学習では、説明変数と目的変数を用いて学習と予測を行います。
 
 &nbsp;
 
@@ -77,16 +91,20 @@ postLayout: simple
 しかし、学習するときに大量のデータが必要になります。この大量のデータ（ビックデータ）収集は時間とコストがかかるのでデメリットの一つとも言えます。
 また、入力データの中に誤ったデータが入っているとモデルの精度が悪くなります。そのため、学習前に入力データを前処理してきれいな状態にする必要があります。
 
-<strong><span style="font-size: 16px;">メリット</span></strong>
+<strong>
+  <span style="font-size: 16px;">メリット</span>
+</strong>
 
 <ul>
- 	<li>学習スピードが速い</li>
- 	<li>出力結果の精度が高い</li>
+  <li>学習スピードが速い</li>
+  <li>出力結果の精度が高い</li>
 </ul>
-<strong><span style="font-size: 16px;">デメリット</span></strong>
+<strong>
+  <span style="font-size: 16px;">デメリット</span>
+</strong>
 <ul>
- 	<li>入力データの中に誤ったデータが入っているとモデルの精度が悪くなる</li>
- 	<li>学習に大量のデータが必要であり、コストと時間がかかる</li>
+  <li>入力データの中に誤ったデータが入っているとモデルの精度が悪くなる</li>
+  <li>学習に大量のデータが必要であり、コストと時間がかかる</li>
 </ul>
 
 <h3>活用例</h3>
@@ -94,11 +112,11 @@ postLayout: simple
 教師あり学習は様々なところで活用されています。正解データさえあれば、モデルを学習し精度の高い予測を出してくれるので、非常に扱いやすい手法だからです。例としては以下のものがあります。
 
 <ul class="i8Z77e">
- 	<li class="TrT0Xe">電子メールのスパム判定</li>
- 	<li class="TrT0Xe">株価や住宅価格の予測</li>
- 	<li class="TrT0Xe">カメラに映る映像中の物体の判定</li>
- 	<li>音声認識として誰が話しているのかを予測</li>
- 	<li class="TrT0Xe">店舗の売り上げ予測</li>
+  <li class="TrT0Xe">電子メールのスパム判定</li>
+  <li class="TrT0Xe">株価や住宅価格の予測</li>
+  <li class="TrT0Xe">カメラに映る映像中の物体の判定</li>
+  <li>音声認識として誰が話しているのかを予測</li>
+  <li class="TrT0Xe">店舗の売り上げ予測</li>
 </ul>
 
 電子メールのスパム判定では、私たち人間が迷惑ボックスに入れたメールを、スパムメールという正解データと認識してモデルが学習します。
@@ -119,9 +137,9 @@ postLayout: simple
 データの特徴を見るために空間にプロットすることを可視化するといいます。データを可視化することは様々なメリットが存在します。
 
 <ul>
- 	<li>わかりやすくデータを理解できる</li>
- 	<li>データ間の関係性を見ることができる</li>
- 	<li>新たな気づきや知見の獲得につながる</li>
+  <li>わかりやすくデータを理解できる</li>
+  <li>データ間の関係性を見ることができる</li>
+  <li>新たな気づきや知見の獲得につながる</li>
 </ul>
 
 私たち人間が可視化によって見やすい次元は 3 次元空間までであって、4 次元以上になると非常にわかりにくいです。
@@ -130,7 +148,7 @@ postLayout: simple
 
 また、高次元のデータをモデルが学習するとき、非常に時間がかかってしまいます。そのため、次元削減を行うことで低次元へ落とし学習を高速にすることができるのです。
 
-![blog placeholder](/src/assets/post/ml1-5.jpg)
+<Figure src={figure5} alt="" />
 
 &nbsp;
 
@@ -139,7 +157,7 @@ postLayout: simple
 クラスタリングは入力データの特徴を抽出し、その特徴の類似度にもとづいて、データをグループ分けする手法です。
 クラスタリングは様々なところで活用されており、amazon のオススメの商品の表示などがあります。過去の購買データをクラスタリングし、同じグループの商品を紹介したりしています。
 
-![blog placeholder](/src/assets/post/ml1-6.jpg)
+<Figure src={figure6} alt="" />
 
 <h2>教師あり学習と教師なし学習の違い</h2>
 
@@ -147,22 +165,26 @@ postLayout: simple
 
 <h3>教師あり学習と教師なし学習の違いについてまとめ</h3>
 <table style="height: 54px; width: 83.6245%; border-collapse: collapse; border-color: #050404;">
-<tbody>
-<tr style="height: 18px;">
-<td style="width: 25%; height: 18px;"></td>
-<td style="width: 25%; height: 18px;">教師あり学習</td>
-<td style="width: 25%; height: 18px;">教師なし学習</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 25%; height: 18px;">学習データ</td>
-<td style="width: 25%; height: 18px;">学習データに正解データを含む。</td>
-<td style="width: 25%; height: 18px;">学習データに正解データを含まない</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 25%; height: 18px;">タスク</td>
-<td style="width: 25%; height: 18px;">予測, 分類</td>
-<td style="width: 25%; height: 18px;">学習データのパターンやルール抽出</td>
-</tr>
-</tbody>
+  <tbody>
+    <tr style="height: 18px;">
+      <td style="width: 25%; height: 18px;"></td>
+      <td style="width: 25%; height: 18px;">教師あり学習</td>
+      <td style="width: 25%; height: 18px;">教師なし学習</td>
+    </tr>
+    <tr style="height: 18px;">
+      <td style="width: 25%; height: 18px;">学習データ</td>
+      <td style="width: 25%; height: 18px;">学習データに正解データを含む。</td>
+      <td style="width: 25%; height: 18px;">
+        学習データに正解データを含まない
+      </td>
+    </tr>
+    <tr style="height: 18px;">
+      <td style="width: 25%; height: 18px;">タスク</td>
+      <td style="width: 25%; height: 18px;">予測, 分類</td>
+      <td style="width: 25%; height: 18px;">
+        学習データのパターンやルール抽出
+      </td>
+    </tr>
+  </tbody>
 </table>
 &nbsp;
