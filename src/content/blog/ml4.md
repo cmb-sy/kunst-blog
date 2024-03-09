@@ -417,7 +417,7 @@ change_submit_file("PassengerId", "Survived", df_test, pridict)
 
 保存された CSV ファイルを提出すれば終わりです。
 
-結果は........<span style="font-size: 20px;"><strong>Score: 0.74880</strong></span>
+結果は........<strong>Score: 0.74880</strong>
 
 まぁ、ざっくりやったのでこんなものと言い訳します。
 
