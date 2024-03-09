@@ -1,15 +1,12 @@
 ---
-layout: /Users/nakashima/kunst-blog/src/styles/post.css
 title: "【機械学習】
 教師あり学習と教習なし学習とは"
-summary: Dive into the diverse capabilities of ChatGPT and learn how to leverage them in your projects.
-date: '2024-02-09'
-lastmod: '2024-02-10'
+description: ""
 pubDate: "Jul 08 2022"
 pubDatetime: 2023-07-20T15:33:05.569Z
 ---
 
-<h2>機械学習とは</h2>
+<h4>機械学習とは</h4>
 
 教師ありと教師なし学習のことを知るには、機械学習を知る必要があります。
 
@@ -126,7 +123,7 @@ pubDatetime: 2023-07-20T15:33:05.569Z
  	<li>新たな気づきや知見の獲得につながる</li>
 </ul>
 
-私たち人間が可視化によって見やすい次元は 3 次元空間までであって、4 次元以上になると非常にわかりにくいです。
+私たち人間が可視化によって見やすい次元は3次元空間までであって、4次元以上になると非常にわかりにくいです。
 
 そのため、4 次元以上の高次元データを、人間が見やすいように可視化するために次元削減を用います。
 
@@ -139,7 +136,7 @@ pubDatetime: 2023-07-20T15:33:05.569Z
 <h3>クラスタリング</h3>
 
 クラスタリングは入力データの特徴を抽出し、その特徴の類似度にもとづいて、データをグループ分けする手法です。
-クラスタリングは様々なところで活用されており、amazon のオススメの商品の表示などがあります。過去の購買データをクラスタリングし、同じグループの商品を紹介したりしています。
+クラスタリングは様々なところで活用されており、amazonのオススメの商品の表示などがあります。過去の購買データをクラスタリングし、同じグループの商品を紹介したりしています。
 
 <a href="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-01-17.50.44.png"><img class="aligncenter wp-image-1963" src="https://cmbnur.com/wp-content/uploads/スクリーンショット-2022-10-01-17.50.44.png" alt="" width="537" height="238" /></a>
 
