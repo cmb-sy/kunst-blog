@@ -48,31 +48,34 @@ const { Content, headings } = await post.render();
     <ScrollTopAndComments client:only="solid-js" />
     <article>
       <header>
-        <div class="space-y-1 pb-10 text-center dark:border-gray-700">
+        <div class="space-y-1 pb-10 dark:border-gray-700">
           <dl>
             <dt class="sr-only">{t("layouts.postLayout.publishedAt")}</dt>
             <dd
               class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
             >
-              <FormattedDate date={post.data.date} />
             </dd>
           </dl>
+          <!-- 記事のタイトル -->
           <PageTitle>{post.data.title}</PageTitle>
+          <!-- 記事の日付 -->
+          <br>
+            <FormattedDate date={post.data.date} />
         </div>
-        {
+        <!-- {
           post.data.cover && POST_METADATA.showCover && (
             <div class="space-y-1 pb-10 text-center dark:border-gray-700">
               <PostCover {post} />
             </div>
           )
-        }
-        {
+        } -->
+        <!-- {
           POST_METADATA.showSummary && (
             <div class="pb-10 text-center border-b border-gray-200">
               <p>{post.data.summary}</p>
             </div>
           )
-        }
+        } -->
       </header>
       <div
         class="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0"
@@ -121,11 +124,19 @@ const { Content, headings } = await post.render();
             </DetailsSummary>
           )
         }
-        <div
+        <!-- <div
           class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
-        >
-          <div class="prose max-w-none pb-8 pt-10 dark:prose-invert">
+        > -->
+        <div
+        class="test2"
+      >
+        <div>
+        <!-- クラスは記事の文字に適応される -->
+          <!-- <div class="prose max-w-none pb-8 pt-10 px-90 dark:prose-invert"> -->
+            <div class="prose test dark:prose-invert">
+            <!-- 何も入ってない？ -->
             <slot />
+            <!-- 記事がcontentに入る -->
             <Content />
           </div>
         </div>
@@ -182,3 +193,35 @@ const { Content, headings } = await post.render();
     </article>
   </SectionContainer>
 </RootLayout>
+
+<style>
+  .test {
+  border-radius: 8px;
+  max-width: calc(100% - 64px);
+  /* ダーク時は見にくい */
+  background-color: #fff;
+  padding: 32px 56px;
+  margin-bottom: 24px;
+
+  font-size: 17px;
+line-height: 1.7;
+overflow-wrap: anywhere;
+font-family: sans-serif;
+color: rgb(0 0 0 / 87%);
+
+}
+
+.test2{
+  max-width: calc(100% - 64px);
+  width: 100%;
+}
+
+.test3{
+  font-size: 17px;
+line-height: 1.7;
+overflow-wrap: anywhere;
+font-family: sans-serif;
+color: rgb(0 0 0 / 87%);
+
+}
+</style>

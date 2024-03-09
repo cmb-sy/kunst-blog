@@ -4,7 +4,7 @@
  * A few of these are not used yet, and are subject to change, example of this is Author.
  */
 export const SITE_METADATA = {
-  theme: "system", // Options: system, light, dark
+  theme: "light", // Options: system, light, dark
   siteUrl: "https://cmb-sy.com",
   siteRepo: "https://github.com/cmb-sy/kunst-blog",
   robots: "index, follow", // Options: index, noindex, follow, nofollow

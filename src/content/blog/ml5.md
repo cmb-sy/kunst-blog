@@ -203,8 +203,10 @@ X[:, 2] = (z1**2 - z2**2)
 
 <h2>参考文献</h2>
 <blockquote>
-<p id="title" class="a-spacing-none a-text-normal"><span id="productTitle" class="a-size-extra-large">ガウス過程と機械学習 (機械学習プロフェッショナルシリーズ)</span></p>
-<span class="author notFaded" data-width=""><span class="a-declarative" data-action="a-popover" data-csa-c-type="widget" data-csa-c-func-deps="aui-da-a-popover" data-a-popover="{&quot;closeButtonLabel&quot;:&quot;著者ダイアログポップオーバーを閉じる&quot;,&quot;name&quot;:&quot;contributor-info-B08JWCM2W6&quot;,&quot;position&quot;:&quot;triggerBottom&quot;,&quot;popoverLabel&quot;:&quot;著者ダイアログポップオーバー&quot;,&quot;allowLinkDefault&quot;:&quot;true&quot;}" data-csa-c-id="ucglf2-d4y0a2-2n38gm-unr4wi">持橋 大地 <i class="a-icon a-icon-popover"></i> </span><span class="contribution"><span class="a-color-secondary">(著), </span></span></span><span class="author notFaded" data-width="">大羽 成征 <span class="contribution"><span class="a-color-secondary">(著)</span></span></span></blockquote>
+ガウス過程と機械学習 (機械学習プロフェッショナルシリーズ)
+持橋 大地 (著), 大羽 成征 
+</blockquote>
+
 <h2>終わりに</h2>
 ここまで読んでくださってありがとうございます。
 

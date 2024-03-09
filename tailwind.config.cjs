@@ -13,6 +13,7 @@ module.exports = {
         13: "3.25rem",
         14: "3.5rem",
       },
+
       fontFamily: {
         sans: ["Onest", ...fontFamily.sans],
       },
@@ -21,6 +22,7 @@ module.exports = {
         gray: colors.gray,
       },
       typography: ({ theme }) => ({
+        // デフォルトのフォント設定
         DEFAULT: {
           css: {
             a: {
@@ -34,7 +36,7 @@ module.exports = {
               fontWeight: "700",
               letterSpacing: theme("letterSpacing.tight"),
               //   cssを
-              color: theme("colors.primary.400"),
+              color: theme("colors.red.900"),
             },
             h3: {
               fontWeight: "600",
