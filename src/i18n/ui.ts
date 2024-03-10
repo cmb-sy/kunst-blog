@@ -1,12 +1,13 @@
+// ここを変えるとエラーになる。
 export const defaultLang = "en" as const;
 
 export const ui = {
   en: {
     // Site Metadata
-    "siteMetadata.title": "Astro Starter Blog",
-    "siteMetadata.headerTitle": "Astro Starter Blog",
+    "siteMetadata.title": "Kunst Blog",
+    "siteMetadata.headerTitle": "Kunst Blog",
     "siteMetadata.description": "A blog created with Astro and Tailwind.css",
-    "siteMetadata.language": "en-US",
+    "siteMetadata.language": "ja-JP",
 
     // Pages
     "pages.home.latestPosts": "Latest posts",

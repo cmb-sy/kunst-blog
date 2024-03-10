@@ -7,18 +7,27 @@ import ThemeSwitcher from "@/solid/ThemeSwitcher.tsx";
 import { useTranslations } from "@/i18n";
 
 const t = useTranslations();
+
 ---
 
-<header class="flex items-center justify-between py-10">
+
+<header class="flex items-center justify-between py-5 " style="border-bottom: 1px solid #cccccc ";>
   <!-- Latex用 -->
 <link rel="stylesheet" style="overflow-x" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous" >
 <!-- --------- -->
+
+<a href="/" aria-label={t("siteMetadata.headerTitle")}>
+    Kunst Blog
+</a>
+
 <div class="mr-3 md:w-40 w-20">
-    <a href="/" aria-label={t("siteMetadata.headerTitle")}>
+  <!-- ロゴ部分 -->
+    <!-- <a href="/" aria-label={t("siteMetadata.headerTitle")}>
       <Logo class="w-full" />
-    </a>
+    </a> -->
   </div>
   <div class="flex items-center leading-5 space-x-4 sm:space-x-6">
+    <!-- ヘッダーの一覧部分 -->
     {
       NAVIGATION.filter((link) => link.href !== "/").map((link) => (
         <HeaderLink

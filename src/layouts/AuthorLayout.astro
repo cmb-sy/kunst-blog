@@ -45,16 +45,21 @@ const authorPosts = await getCollection(
 
 <RootLayout title={name} description={shortBio}>
   <div class="divide-y divide-gray-200 dark:divide-gray-700">
-    <div class="space-y-2 pb-8 pt-6 md:space-y-5">
-      <h1
-        class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+    <div class="space-y-2 pb-1 pt-6 md:space-y-5">
+      <h2
+        class="text-1l font-extrabold leading-1 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-10 md:text-4xl md:leading-14"
       >
         {t("layouts.authorLayout.aboutAuthor", { name })}
-      </h1>
+      </h2>
     </div>
     <div
       class="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0"
     >
+    <div class="xl:col-span-2 max-w-none d-flex">
+      <div class="prose pb-8 pt-8 dark:prose-invert">
+        <slot />
+      </div>
+    </div>
       <div class="flex flex-col items-center space-x-2 pt-8">
         {
           avatar && (
@@ -79,11 +84,8 @@ const authorPosts = await getCollection(
           {twitter && <SocialIcon kind="twitter" href={twitter} />}
         </div>
       </div>
-      <div class="xl:col-span-2 max-w-none d-flex">
-        <div class="prose pb-8 pt-8 dark:prose-invert">
-          <slot />
-        </div>
-        {
+        <!-- 最近の記事を表示する -->
+        <!-- {
           authorPosts.length > 0 && (
             <div class="pt-8">
               <h2 class="text-2xl font-bold leading-8 tracking-tight">
@@ -98,8 +100,7 @@ const authorPosts = await getCollection(
               </ul>
             </div>
           )
-        }
-      </div>
+        } -->
     </div>
   </div>
 </RootLayout>
