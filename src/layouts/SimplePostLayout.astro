@@ -46,29 +46,28 @@ const { Content, headings } = await post.render();
 >
   <SectionContainer>
     <ScrollTopAndComments client:only="solid-js" />
-    <article>
+    <article class="test2">
       <header>
-        <div class="space-y-1 dark:border-gray-700">
-          <dl>
+          <!-- <dl>
             <dt class="sr-only">{t("layouts.postLayout.publishedAt")}</dt>
             <dd
               class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
             >
             </dd>
-          </dl>
+          </dl> -->
           <!-- 記事のタイトル -->
           <PageTitle>{post.data.title}</PageTitle>
           <!-- 記事の日付 -->
           <br>
             <FormattedDate date={post.data.date} />
-        </div>
-        {
+        <!-- サムネ画像 -->
+        <!-- {
           post.data.cover && POST_METADATA.showCover && (
-            <div class="space-y-1 pb-10 text-center dark:border-gray-700">
+            <div class="space-y-1 pb-1 text-center dark:border-gray-700">
               <PostCover {post} />
             </div>
           )
-        }
+        } -->
         <!-- {
           POST_METADATA.showSummary && (
             <div class="pb-10 text-center border-b border-gray-200">
@@ -194,12 +193,12 @@ const { Content, headings } = await post.render();
 
 <style>
   .test {
-  border-radius: 10px;
   /* max-width: calc(100% - 100px); */
   /* ダーク時は見にくい */
   /* background-color: yellow; */
   /* padding: 32px 50px; */
   margin-bottom: 24px;
+  margin-top: 10px;
 
   /* 文字設定 */
   font-size: 17px;
@@ -208,4 +207,15 @@ const { Content, headings } = await post.render();
   /* color: rgb(0 0 0 / 87%); */
 
 }
-</style>
+
+/* 画面の大きさに合わせて記事のpaddingを変更 */
+@media screen and (min-width: 640px){
+.test2{ padding: 32px 50px; 
+  border-radius: 10px}
+}
+
+@media screen and (min-width: 0px) and (max-width: 939px){
+.test2{width:100%}
+}
+
+
