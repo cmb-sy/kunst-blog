@@ -2,8 +2,9 @@
 title: Simple layout with cover
 summary: This is a simple layout with a cover image. The cover image is set in the front matter of the markdown file.
 postLayout: simple
-date: '2024-02-12'
-cover: '@/assets/og-image.png'
+date: "2024-02-12"
+draft: true
+cover: "@/assets/og-image.png"
 ---
 
 This is a simple layout with a cover image. The cover image is set in the front matter of the markdown file.
@@ -18,12 +19,11 @@ Additionally, you can use '@' to refer to the `src` directory. For example, `@/a
 ---
 title: Simple layout with cover
 postLayout: simple
-date: '2024-02-12'
-cover: '@/assets/og-image.png'
+date: "2024-02-12"
+cover: "@/assets/og-image.png"
 ---
 ```
 
 The cover image is displayed at the top of the page. The title and date are displayed below the cover image. The rest of the content is displayed below the title and date.
 
 The cover is responsive and using Astro's built-in image optimization. It will be displayed at the top of the page on large screens and at the top of the content on small screens.
-
