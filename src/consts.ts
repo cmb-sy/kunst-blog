@@ -8,6 +8,8 @@ export const SITE_METADATA = {
   siteUrl: "https://cmb-sy.com",
   siteRepo: "https://github.com/cmb-sy/kunst-blog",
   robots: "index, follow", // Options: index, noindex, follow, nofollow
+  title: "string",
+  language: "string",
 
   // These are not supported yet
   analytics: {

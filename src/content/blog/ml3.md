@@ -45,10 +45,10 @@ $$
 $$
 
 $$
-\Phi=\left(\begin{array}{ccccc} \boldsymbol \varphi^T(x_1) \\ \boldsymbol \varphi^T(x_2) \\ \vdots \\ \boldsymbol \varphi^T(x_m)\end{array}\right)=\left( \begin{array}{ccccc} \varphi^T_1(x_1) &amp; \cdots &amp; \varphi^T_M(x_1) &amp; \\ \vdots &amp; \ddots  \\ \varphi^T_1(x_n) &amp; \cdots &amp; \varphi^T_M(x_n)\end{array}\right)
+\Phi=\left(\begin{array}{ccccc} \boldsymbol \varphi^T(x_1) \\ \boldsymbol \varphi^T(x_2) \\ \vdots \\ \boldsymbol \varphi^T(x_m)\end{array}\right)=\left( \begin{array}{ccccc} \varphi^T_1(x_1) & \cdots & \varphi^T_M(x_1) & \\ \vdots & \ddots  \\ \varphi^T_1(x_n) & \cdots & \varphi^T_M(x_n)\end{array}\right)
 $$
 
-$\mathbf{y}\approx\Phi\mathbf{w}$となるような$\Phi$を求めたいのが線形回帰モデルです。
+$\mathbf{y}\approx\Phi\mathbf{w}$となるような$\mathbf{w}$を求めたいのが線形回帰モデルです。
 
 <h2>線形回帰モデルを解く</h2>
 

@@ -10,7 +10,7 @@ export const ui = {
     "siteMetadata.language": "ja-JP",
 
     // Pages
-    "pages.home.latestPosts": "Latest posts",
+    "pages.home.latestPosts": "Thank you for visiting",
     "pages.home.viewAllPosts": "View all posts",
     "pages.home.noPosts": "No posts found",
     "pages.home.readMoreAbout": "Read more about {title}",

@@ -28,7 +28,7 @@ type Props = {
 <html lang={t("siteMetadata.language")} class="scroll-smooth">
   <BaseHead {...Astro.props} />
   <!-- <body class="custom-root-rayout dark:bg-gray-950 dark:text-white"> -->
-<body class="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
+<body class="rootLayout dark:bg-gray-950 dark:text-white">
     <SectionContainer>
       <div class="flex h-screen flex-col justify-between font-sans">
         <Header />
@@ -40,3 +40,14 @@ type Props = {
     </SectionContainer>
   </body>
 </html>
+
+<style>
+  .rootLayout{
+    /*  qiita背景色 */
+  background-color: #f5f6f6;
+  color: black;
+  /* フォントのアンチエイリアシングを有効にし、より滑らかな表示 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+</style>

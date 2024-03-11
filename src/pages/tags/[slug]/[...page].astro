@@ -15,7 +15,8 @@ interface Props {
   entry: CollectionEntry<"tags">;
 }
 
-export async function getStaticPaths({ paginate }) {
+// 補強
+export async function getStaticPaths({ paginate }: { paginate: any }) {
   const tags = await getCollection("tags");
   const posts = await getCollection("blog", excludeDrafts).then(sortBlogPosts);
 
