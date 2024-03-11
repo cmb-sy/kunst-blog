@@ -1,11 +1,9 @@
 ---
 title: "線形回帰モデルのDualとカーネル関数について"
 description: ""
-pubDate: "Jul 08 2023"
-pubDatetime: 2023-09-20T15:33:05.569Z
 summary: A simple blog post with a single-column layout and an optional cover banner.
 date: 2024-02-12
-postLayout: simple
+tags: ["ml", "math"]
 ---
 
 <h2>はじめに</h2>
@@ -93,7 +91,7 @@ $\boldsymbol \Phi^T$を右からかけて、左からくくり出しています
 $A$に左から$(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}$、右から$(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)^{-1} $をかけます。
 
 $$
-\begin{equation*}\begin{split}(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}A(\boldsymbol \Phi \boldsymbol \Phi^T+ \lambda I)^{-1}&amp;=\boldsymbol \Phi^T(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)^{-1}\\&amp;=(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}\boldsymbol \Phi^T \end{split}\end{equation*}
+\begin{equation*}\begin{split}(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}A(\boldsymbol \Phi \boldsymbol \Phi^T+ \lambda I)^{-1} & =\boldsymbol \Phi^T(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)^{-1}\\ & =(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}\boldsymbol \Phi^T \end{split}\end{equation*}
 $$
 
 したがって、$\boldsymbol \Phi^T(\boldsymbol \Phi \boldsymbol \Phi^T + \lambda I)^{-1}=(\boldsymbol \Phi^T\boldsymbol \Phi +\lambda I)^{-1}\boldsymbol \Phi^T$なので

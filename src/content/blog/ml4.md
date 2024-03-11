@@ -1,11 +1,7 @@
 ---
-title: "タイタニックしてみた"
-description: ""
-pubDate: "Jul 08 2023"
-pubDatetime: 2023-09-20T15:33:05.569Z
-summary: A simple blog post with a single-column layout and an optional cover banner.
+title: "【kaggle】タイタニックしてみた"
 date: 2024-02-12
-postLayout: simple
+tags: ["ml"]
 ---
 
 本記事は、Kaggle で最も有名な<a href="https://www.kaggle.com/c/titanic">タイタニック</a>のテーマに対して、CSV ファイルの取得から実際にスコアが出るところまでを行いたいと思います。
@@ -56,7 +52,9 @@ print(df_train.info())
 print(df_test.info())
 ```
 
-![blog placeholder](/src/assets/post/ml4-2.jpg)
+<!-- ![blog placeholder](/src/assets/post/ml4-2.jpg) -->
+
+![An arrow pointing at the website logo](/src/assets/post/ml4-2.jpg)
 
 Object 型が何個かあるのがわかります。Object 型は学習できないので加工する必要があります。少なくとも 5 つのカラムについては消すか加工する必要がありそうです。
 
@@ -77,7 +75,7 @@ Survivedはデータが0か1で表わされます。0が死亡で1が生存に�
 例えば、Age と Survived の関係を可視化すると次のようになります。
 Age のデータの種類（年齢の違い）が多すぎて、何がなんなのかわかりません。
 
-![blog placeholder](/src/assets/post/ml4-3.jpg)
+![An arrow pointing at the website logo](/src/assets/post/ml4-3.jpg)
 
 そのため、データの種類の少ないと思われる Pclass、Sex、Embarked、Parch、SibSip を一気に可視化したいと思います。
 
@@ -92,7 +90,7 @@ fig, axes = plt.subplots(3, 2, figsize=(16, 12))
  plt.show()
 ```
 
-![blog placeholder](/src/assets/post/ml4-5.jpg)
+![An arrow pointing at the website logo](/src/assets/post/ml4-5.jpg)
 
 それぞれのカラムの意味をまとめておきます。
 
@@ -159,7 +157,9 @@ fig, axes = plt.subplots(3, 2, figsize=(16, 12))
   plt.show()
 ```
 
-![blog placeholder](/src/assets/post/ml4-6.jpg)
+<!-- ![blog placeholder](/src/assets/post/ml4-6.jpg) -->
+
+![An arrow pointing at the website logo](/src/assets/post/ml4-6.jpg)
 
 それぞれのカラムの意味をまとめておきます。
 
@@ -298,7 +298,9 @@ sns.countplot(x='FamilySize', data = df_train, hue = 'Survived')
 plt.show()
 ```
 
-![blog placeholder](/src/assets/post/ml4-7.jpg)
+<!-- ![blog placeholder](/src/assets/post/ml4-7.jpg) -->
+
+![An arrow pointing at the website logo](/src/assets/post/ml4-7.jpg)
 
 <h2>相関関係と相互情報量</h2>
 <h3>相関関係の可視化</h3>
@@ -325,7 +327,7 @@ plt.ylim(df_spearman.shape[1],0)
 plt.show()
 ```
 
-![blog placeholder](/src/assets/post/ml4-8.jpg)
+![An arrow pointing at the website logo](/src/assets/post/ml4-8.jpg)
 
 値が大きいものに着目してまとめると
 
@@ -395,5 +397,3 @@ change_submit_file("PassengerId", "Survived", df_test, pridict)
 
 <h2>最後に</h2>
 ここまで読んでいただきありがとうございます。
-
-修正リクエストやアドバイスのコメントを心よりお待ちしています。

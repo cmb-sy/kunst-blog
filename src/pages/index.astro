@@ -21,12 +21,11 @@ const posts = await getCollection("blog", excludeDrafts).then(sortBlogPosts);
   <div class="divide-y divide-gray-200 dark:divide-gray-700">
     <div class="space-y-2 pb-8 pt-6 md:space-y-5">
       <!-- Home -->
-      <h1
-        class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+      <h4
+        class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
       >
         {t("pages.home.latestPosts")}
-      </h1>
-
+      </h4>
 <!-- ------------------------------------------------------------- -->
       <!-- <p class="text-lg leading-7 text-gray-500 dark:text-gray-400">
         {t("siteMetadata.description")}
@@ -80,6 +79,7 @@ const posts = await getCollection("blog", excludeDrafts).then(sortBlogPosts);
       }
     </ul> -->
   </div>
+  <!-- ------------------------------------------------------------- -->
   {
     posts.length > ITEMS_PER_PAGE && (
       <div class="flex justify-end text-base font-medium leading-6">
@@ -93,6 +93,18 @@ const posts = await getCollection("blog", excludeDrafts).then(sortBlogPosts);
       </div>
     )
   }
+  <!-- Home内容 ----------------------------------------------------------- -->
+  KunstBlogを閲覧頂きありがとうございます。
+
+  今後の実装予定
+  - 間違った記事にコメントを頂くためのお問い合わせ画面
+  - 
+
+KunstBlogはデザインを随時アップグレード中です。
+
+  
+
+  <!-- ------------------------------------------------------------- -->
   <!--TODO: Add newsletter form-->
   <!--{siteMetadata.newsletter?.provider && (-->
   <!--        <div class="flex items-center justify-center pt-4">-->

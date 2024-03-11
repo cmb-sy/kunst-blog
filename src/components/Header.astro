@@ -30,8 +30,8 @@ const t = useTranslations();
     <!-- ヘッダーの一覧部分 -->
     {
       // NAVIGATIONという配列をフィルタリング
-      // NAVIGATION.filter((link) => link.href !== "/").map((link) => (
-      NAVIGATION.map((link) => (
+      NAVIGATION.filter((link) => link.href !== "/").map((link) => (
+      // NAVIGATION.map((link) => (
         <HeaderLink
           href={link.href}
           class="hidden sm:block font-medium text-gray-900 dark:text-gray-100"
@@ -41,7 +41,7 @@ const t = useTranslations();
       ))
     }
     <div class="flex gap-4">
-      <!--<SearchButton />-->
+      <!-- <SearchButton />-->
       <!-- <ThemeSwitcher client:only="solid-js" />
       <MobileNav client:only="solid-js" /> -->
     </div>
