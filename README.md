@@ -1,9 +1,3 @@
-## 概要
-個人用のブログ
-
-## 技術
-- astro
-- cloudflare
-- xdomain
-- react, typescript
-
+やること
+- HOMEはブログの説明と簡単な自己紹介
+- 記事を見やすく調整
