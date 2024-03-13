@@ -49,7 +49,12 @@ const { Content, headings } = await post.render();
   <SectionContainer>
     <ScrollTopAndComments client:only="solid-js" />
     <article>
-      <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+      <div class="prose test max-w-none pb-8 pt-10 dark:prose-invert">
+        <!-- <slot /> -->
+        
+        <Content />
+      </div>
+      <!-- <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
         <header class="pt-6 xl:pb-6">
           <div class="space-y-1 text-center pb-4">
             <dl class="space-y-10">
@@ -90,7 +95,6 @@ const { Content, headings } = await post.render();
               <ul
                 class="flex flex-wrap justify-center items-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
               >
-                <!--TODO: Add support for multiple authors-->
                 {
                   authors.map(({ data, slug }) => (
                     <>
@@ -178,8 +182,9 @@ const { Content, headings } = await post.render();
               )
             }
 
-            <div class="prose max-w-none pb-8 pt-10 dark:prose-invert">
+            <div class="prose test max-w-none pb-8 pt-10 dark:prose-invert">
               <slot />
+              
               <Content />
             </div>
             {
@@ -187,22 +192,8 @@ const { Content, headings } = await post.render();
                 <SocialShareButtons title={post.data.title} description={post.data.summary} />
               ) : null
             }
-            <!--    <div class="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">-->
-            <!--        <Link href={discussUrl(path)} rel="nofollow">-->
-            <!--            Discuss on Twitter-->
-            <!--        </Link>-->
-            <!--        {` • `}-->
-            <!--        <Link href={editUrl(filePath)}>View on GitHub</Link>-->
-            <!--    </div>-->
-            <!--    {SITE_METADATA.comments && (-->
-            <!--            <div-->
-            <!--                    class="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"-->
-            <!--                    id="comment"-->
-            <!--            >-->
-            <!--                <Comments slug={slug}/>-->
-            <!--            </div>-->
-            <!--    )}-->
           </div>
+          
           <footer>
             <div
               class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y"
@@ -221,6 +212,7 @@ const { Content, headings } = await post.render();
                   </div>
                 )
               }
+
               {
                 (next || prev) && (
                   <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
@@ -281,7 +273,25 @@ const { Content, headings } = await post.render();
             </div>
           </footer>
         </div>
-      </div>
+      </div> -->
     </article>
   </SectionContainer>
 </RootLayout>
+
+<style>
+  .test {
+  max-width: 100%;
+  /* ダーク時は見にくい */
+  background-color: white;
+  padding: 32px 50px;
+  margin-bottom: 24px;
+  margin-top: 10px;
+
+  /* 文字設定 */
+  font-size: 17px;
+  line-height: 2.125rem;
+  font-family: sans-serif;
+  color: #1e2126;
+
+}
+</style>

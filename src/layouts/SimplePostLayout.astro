@@ -129,7 +129,7 @@ const { Content, headings } = await post.render();
         >
         <div>
         <!-- クラスは記事の文字に適応される -->
-          <!-- <div class="prose max-w-none pb-8 pt-10 px-90 dark:prose-invert"> -->
+          <div class="prose test max-w-none pb-8 pt-10 px-90 dark:prose-invert">
             <div class="prose test dark:prose-invert">
             <!-- 何も入ってない？ -->
             <slot />
@@ -192,22 +192,6 @@ const { Content, headings } = await post.render();
 </RootLayout>
 
 <style>
-  .test {
-  /* max-width: calc(100% - 100px); */
-  /* ダーク時は見にくい */
-  /* background-color: yellow; */
-  /* padding: 32px 50px; */
-  margin-bottom: 24px;
-  margin-top: 10px;
-
-  /* 文字設定 */
-  font-size: 17px;
-  line-height: 1.7rem;
-  font-family: sans-serif;
-  /* color: rgb(0 0 0 / 87%); */
-
-}
-
 /* 画面の大きさに合わせて記事のpaddingを変更 */
 @media screen and (min-width: 640px){
 .test2{ padding: 32px 50px; 
@@ -221,5 +205,3 @@ const { Content, headings } = await post.render();
 @media screen and (min-width: 0px) and (max-width: 639px){
 .test2{width:100%}
 }
-
-
